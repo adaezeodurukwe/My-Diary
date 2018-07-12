@@ -3,6 +3,11 @@
     padding: 0;
     margin: 0;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif ;
+
+}
+body
+{
+    background: #FFFFF0 ;
 }
 
 h2
@@ -162,4 +167,78 @@ form button
     color: white;
     margin-left: 42%;
     margin-top: 10%;
+}
+
+/* profile page */
+/* section
+{
+        background: #ccc url(img/Background.jpg) repeat-y 50% 0;
+
+} */
+.sidebar
+{
+    width: 15%;
+    height: 100%;
+    float: left;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #ADD8E6;
+    overflow-x: hidden;
+    padding: 2.5%;
+}
+
+.sidebar ul li
+{
+    list-style: none;
+    padding-top: 5%;
+}
+
+.sidebar ul li a
+{
+    text-decoration: none;
+    color: #333;
+   
+}
+
+main
+{
+    width: 75%;
+    float: right;
+    padding: 2.5%;
+}
+
+.entry
+{
+    background: #ffffff;
+    margin: 1%;
+    padding: 1%;
+}
+
+.entry .head
+{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.entry .head i
+{
+    display: block;
+}
+
+.entry .tail
+{
+    padding: 5px;
+}
+
+.entry button
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 15px;
+    height: 40px;
+    color: white;
+    margin-left: 42%;
+    margin-top: 3%;
 }
