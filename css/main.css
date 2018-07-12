@@ -143,13 +143,14 @@ footer
     margin-bottom: 100px; 
 }
 
-label, input
+.form label, 
+.form input
 {
     display: block;
     margin: 2%;
 }
 
-form input
+.form input
 {
     width: 100%;
 	height: 50px;
@@ -158,7 +159,7 @@ form input
 	font-size: 16px;
 }
 
-form button
+.form button
 {
     background: #3CB371;
     width: 200px;
@@ -241,4 +242,46 @@ main
     color: white;
     margin-left: 42%;
     margin-top: 3%;
+}
+
+/* new entry */
+.extra
+{
+    float: right;
+}
+.extra ul li
+{
+    list-style: none;
+    display: inline-block;
+    background: #ffffff;
+    border-style: solid;
+    border-top-color: #ccc;
+    border-width: 1px 1px 0px 1px;
+    width: 40px;
+    text-align: center
+}
+
+.new textarea
+{
+    width: 98%;
+    height: 500px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 1%;
+}
+
+.checkbox
+{
+    float: right;
+}
+
+.new button
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 15px;
+    height: 40px;
+    color: white;
+    margin-top: 3%;
+    float: right;
 }
