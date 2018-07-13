@@ -7,14 +7,24 @@
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    <nav>
+        <div class="name"><h2>MY DIARY</h2></div>
+        <div class="list">
+            <ul>
+                <li><a href="index.html">Home</a></li> |
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </div>
+        
+    </nav>
     <header>
         <div class="haeding">
             <img id="back" src="img/book.jpg" alt="diary">
-            <div class = "content">
+            <div class = "contents">
                 <h1>Dear Diary</h1>
                 <p><i>Today I stubbed my toe </i> <img src="img/pain (1).png"/> </p>
-                <input type="button" value="Get Started"/>
-                <input type="button" value="Sign In"/>
+                <input type="button" onclick="location.href='signup.html';" value="Get Started"/>
+                <input type="button" onclick="location.href='signin.html';" value="Sign In"/>
             </div> 
             
         </div>    
@@ -24,33 +34,32 @@
             <h2>About This App</h2>
             <article>
                 <h4>Introduction</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-            </article>
-            <article>
-                <h4>Features</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                <p>Books burn, get wet, get destroyed so utilize our web application to save those fun memories, put down your thoughts and opinions on whatever you are interested in. </p>
             </article>
             <article>
                 <h4>How to</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                <p>Get Started in three easy steps:</p>
+                <ul>
+                    <li>Create an account</li>
+                    <li>Verify your email</li>
+                    <li>Set up your profile and get to posting</li>
+                </ul>
+            </article>
+            <article>
+                <h4>Features</h4>
+                <p>With This easy to use platform, you can:</p>
+                <ul>
+                    <li>Log entries</li>
+                    <li>View entries</li>
+                    <li>Delete or edit entries</li>
+                    <li>Set reminder </li>
+                </ul>
             </article>
         </div>
     </div>
-    <div class="odd">
-            <div class="container">
-                <h2>In Short</h2>
-                <div class="span1">
-                    <b>Did it happen?</b>
-                    <b>Think it?</b>
-                    <b>Know it?</b>
-                    <b>Have an idea?</b>
-                    <b>Want to remember?</b>
-                </div>
-            
-            <h1>Log it!</h1>
-            <input type="button" value="Get started now">
-        </div>
-    </div>
+    <footer>
+        	&copy;Adaeze Eze-Odurukwe
+    </footer>
    
 </body>
 </html>
