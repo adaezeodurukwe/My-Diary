@@ -12,6 +12,43 @@
         "allowImportExportEverywhere":true
     },
     "rules": {
+        "func-names": ["error", "never"],
+        "quotes": "error",
+        "curly": [
+            "error",
+            "multi-line"
+        ],
+        "one-var": 0,
+        "one-var-declaration-per-line": 0,
+        "new-cap": 0,
+        "no-underscore-dangle": [1, {
+            "allow": ["_id"]
+        }],
+        "import/no-unresolved": [
+            2,
+            {
+                "commonjs": true
+            }
+        ],
+        "calid-jsdoc": [
+            "error",
+            {
+                "requireReturn": true,
+                "requireReturnType": true,
+                "requireParamDescription": false,
+                "requireReturnDescription": true
+            }
+        ],
+        "require-jsdoc": [
+            "error",
+            {
+                "require": {
+                    "FunctionDeclaration": true,
+                    "MethodDefinition": true,
+                    "ClassDeclaration": true
+                }
+            }
+        ],
         "indent": [
             "error",
             4
@@ -20,10 +57,7 @@
             "error",
             "windows"
         ],
-        "quotes": [
-            "error",
-            "single"
-        ],
+        
         "semi": [
             "error",
             "always"
