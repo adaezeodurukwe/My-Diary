@@ -1,4 +1,4 @@
-const entries = [
+export const entries = [
     {
         id: 1,
         title: 'Little did I know',
@@ -14,3 +14,4 @@ const entries = [
         modified: 0,
     },
 ]
+

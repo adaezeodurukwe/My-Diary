@@ -1,3 +1,3 @@
-import entries from 'model/entries.js'
+import entries from '/model/entries.js';
 
-print(entries);
+console.log(entries);
