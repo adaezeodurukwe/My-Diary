@@ -14,17 +14,18 @@ class Entries {
       });
     }
     static retrieveEntry(req, res) {
-      for (let i = 0; i < entries.length; i += 1) {
+      let i = 0;
+      while(i < entries.length){
         if (entries[i].id === parseInt(req.params.id, 10)) {
           return res.json({
             entries: entries[i],
-            message: 'success',
-            error: false
+            message: 'entry retrieved',
           });
         }
+        i++;
       }
       return res.status(404).json({
-        message: 'recipe not found',
+        message: 'entry not found',
         error: true
       });
     }
