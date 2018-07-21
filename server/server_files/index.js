@@ -10,5 +10,9 @@ app.get('/', (req, res)=>{
     res.send('Hello Ada')
 });
 app.get('/api/v1/entries', Entries.getEntries);
+
 app.put('/api/v1/entries/:id', Entries.modifyEntry);
+
+app.get('/api/v1/entries/:id', Entries.retrieveEntry);
+
 app.listen(5000, () => console.log('this works') );
