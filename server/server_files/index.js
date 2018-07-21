@@ -8,7 +8,9 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res)=>{
-    res.send('Hello Ada')
+    res.status(200).send('Hello Ada')
 });
 app.get('/api/v1/entries', Entries.getEntries);
-app.listen(5000, () => console.log('this works') );
+const server = app.listen(5000, () => console.log('this works') );
+
+module.exports = server;
