@@ -1,9 +1,10 @@
+const express = require('express');
+const app = express();
 
 import Entries from './controller/entries'
 import bodyParser from 'body-parser';
 
-const express = require('express');
-const app = express();
+
 app.use(bodyParser.json());
 
 
