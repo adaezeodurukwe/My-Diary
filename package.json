@@ -2,6 +2,9 @@
   "name": "my-diary",
   "version": "1.0.0",
   "description": "An online journal",
+  "engines": {
+    "node": ">=10.6.0"
+  },
   "scripts": {
     "start": "nodemon --exec babel-node - server_files/index.js",
     "lint": "eslint **/*.js --fix",
