@@ -7,6 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 
 
+const port = parseInt(process.env.PORT, 10) || 5000;
+app.listen(port, () =>console.log('this works'))
+
 app.get('/', (req, res)=>{
     res.send('Hello Ada')
 });
@@ -20,4 +23,4 @@ app.put('/api/v1/entries/:id', Entries.modifyEntry);
 
 app.get('/api/v1/entries/:id', Entries.retrieveEntry);
 
-app.listen(5000, () => console.log('this works') );
+
