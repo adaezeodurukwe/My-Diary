@@ -1,4 +1,4 @@
-//import entries from './model/entries';
+
 import Entries from './controller/entries'
 import bodyParser from 'body-parser';
 
