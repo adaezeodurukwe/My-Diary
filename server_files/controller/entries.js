@@ -9,7 +9,7 @@ class Entries {
    * @param {*} res
    */
   static getEntries(req, res) {
-    return res.json({
+    return res.status(200).json({
       entries
     });
   }
@@ -48,7 +48,7 @@ class Entries {
           entries[i].title = req.body.title;
           entries[i].content = req.body.content;
           entries[i].modified = 1;
-          return res.json({
+          return res.status(200).json({
             entries,
             message: 'entry modified successfully',
             error: false
@@ -64,7 +64,7 @@ class Entries {
       let i = 0;
       while(i < entries.length){
         if (entries[i].id === parseInt(req.params.id, 10)) {
-          return res.json({
+          return res.status(200).json({
             entries: entries[i],
             message: 'entry retrieved',
           });
@@ -85,7 +85,7 @@ class Entries {
           date_created: req.body.date_created,
           modified: 0
         });
-        return res.json({
+        return res.status(201).json({
           entries,
           message: 'new entry created',
           error: false
@@ -94,4 +94,4 @@ class Entries {
 
 }
 
-export default Entries
+export default Entries;

@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-import Entries from './controller/entries'
+import Entries from './server_files/controller/entries';
 import bodyParser from 'body-parser';
 
 
@@ -24,4 +24,4 @@ app.put('/api/v1/entries/:id', Entries.modifyEntry);
 
 app.get('/api/v1/entries/:id', Entries.retrieveEntry);
 
-
+module.exports = app;
