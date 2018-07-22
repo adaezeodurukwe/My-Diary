@@ -43,18 +43,3 @@ describe('POST API endpoint /api/v1/entries', function(){
     });
 });
 
-describe('GET API endpoint /api/v1/entries/:id', function(){
-    this.timeout(5000); // How long to wait for a response (ms)
-    it('should return entry by id', function() {
-        chai.request(app)
-        .get('/api/v1/entries/:id')
-        .send({
-            id: 1
-        })
-        .end(function(err, res) {
-            expect(res).to.have.status(200);
-        });
-        
-    });
-});
-
