@@ -53,9 +53,6 @@ describe('GET API endpoint /api/v1/entries/:id', function(){
         })
         .end(function(err, res) {
             expect(res).to.have.status(200);
-            res.body.should.have.property('title');
-            res.body.should.have.property('content');
-            res.body.should.have.property('id').eql(1);
         });
         
     });
