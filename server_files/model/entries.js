@@ -1,3 +1,5 @@
+//API Entries model using an array and objects
+
 const entries = [
     {
         id: 1,

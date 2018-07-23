@@ -1,16 +1,19 @@
+//Server setup
+
 const express = require('express');
 const app = express();
-
 import Entries from './server_files/controller/entries';
 import bodyParser from 'body-parser';
 
-
+//parse application
 app.use(bodyParser.json());
 
-
+//set port and listen
 const port = parseInt(process.env.PORT, 10) || 5000;
 app.listen(port, () =>console.log('this works'))
 
+
+//set routes
 app.get('/', (req, res)=>{
     res.send('Hello Ada')
 });

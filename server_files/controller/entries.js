@@ -1,10 +1,12 @@
+//API Entries class
+
 import entries from '../model/entries';
 /**
  * @class entries
  */
 class Entries {
   /**
-   * @returns {Object} recipes
+   * @returns {Object} Entries
    * @param {*} req
    * @param {*} res
    */
@@ -14,7 +16,7 @@ class Entries {
     });
   }
   /**
-   * @returns {object} removeEcipes
+   * @returns {object} removeEntry
    * @param {*} req
    * @param {*} res
    */
@@ -37,7 +39,7 @@ class Entries {
   }
 
    /**
-   * @returns {Object} updateRecipes
+   * @returns {Object} updateEntry
    * @param {*} req
    * @param {*} res
    */
@@ -60,6 +62,11 @@ class Entries {
       message: 'entry not found',
     });
   }
+  /**
+   * @returns {obj} retrieveEntry
+   * @param {*} req
+   * @param {*} res
+   */
     static retrieveEntry(req, res) {
       let i = 0;
       while(i < entries.length){
@@ -76,7 +83,11 @@ class Entries {
         error: true
       });
     }
-
+    /**
+   * @returns {Object} createEntry
+   * @param {*} req
+   * @param {*} res
+   */
     static createEntry(req, res) {
         entries.push({
           id: entries.length + 1,

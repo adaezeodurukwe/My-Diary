@@ -1,3 +1,5 @@
+//API test
+
 const chai = require('chai');
 const expect = require('chai').expect;
 import entries from '../server_files/model/entries';
@@ -26,6 +28,8 @@ describe('GET API endpoint /api/v1/entries', function() {
 
 describe('POST API endpoint /api/v1/entries', function(){
     this.timeout(5000); // How long to wait for a response (ms)
+    
+    // POST - Add entries
     it('should add an entry', function() {
         chai.request(app)
         .post('/api/v1/entries')
