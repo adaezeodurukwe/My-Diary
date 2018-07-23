@@ -4,7 +4,7 @@ import entries from '../model/entries';
  */
 class Entries {
     /**
-     * @returns {Object} recipes
+     * @returns {Object} Entries
      * @param {*} req
      * @param {*} res
      */
@@ -13,6 +13,11 @@ class Entries {
         entries
       });
     }
+     /**
+   * @returns {Object} retrieveEntry
+   * @param {*} req
+   * @param {*} res
+   */
     static retrieveEntry(req, res) {
       let i = 0;
       while(i < entries.length){
