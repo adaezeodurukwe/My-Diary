@@ -1,0 +1,419 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif ;
+
+} 
+body
+{
+    background: #FFFFF0 ;
+}
+
+h2
+{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+p img
+{
+    width: 30px;
+    height: 30px;
+}
+
+nav
+{
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    background: #000080;
+    opacity: 0.8;
+    position: fixed;
+    top: 0px;
+}
+
+nav ul li
+{
+    list-style: none;
+    display: inline-block;
+}
+
+nav ul li a
+{
+    text-decoration: none;
+    color: #ccc;
+}
+
+nav ul li a:active,
+nav ul li a:active
+{
+    color: #ffffff;
+}
+
+nav .list
+{
+    widows: 60%;
+    padding-right: 5%;
+    margin-top: 10px;
+    float: right;
+    color:#ccc;
+}
+
+nav .name
+{
+    color: #ccc;
+    width: 20%;
+    float: left;
+}
+
+.container
+{
+    width: 80%;
+    margin: auto;
+}
+
+/* .heading
+{
+    position: relative;
+} */
+
+.contents h1
+{
+    font-size: 100px;
+    color: #666;
+}
+
+.contents p
+{
+    text-align: center;
+    font-size: 30px;
+}
+
+.contents input
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 20px;
+    height: 40px;
+    color: white;
+    margin-left: 15%;
+    margin-top: 10%;
+}
+
+header #back
+{
+    width: 100%;
+    height: 600px;
+}
+
+.contents
+{
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+
+section
+{
+    padding-top: 3%;
+}
+
+article
+{
+    width: 30%;
+    float: left;
+    padding: 1.5%;
+    text-align: justify;
+}
+
+article ul li
+{
+    list-style: none;
+    padding-top: 5px;
+}
+
+.even
+{
+    background: white;
+    min-height: 400px;
+    max-height: 600px;
+    padding-top: 10px;
+}
+
+footer
+{
+    color: #666;
+    border: solid #F5F5F5;
+    border-width: 2px 0px 2px 0px; 
+    min-height: 100px;
+    background: #F5F5F5;
+    padding-top: 10px;
+    text-align: center;
+}
+
+
+
+/* signup */
+.form
+{
+    border: 1px solid #666;
+    border-radius: 20px;
+    padding: 5%;
+    width: 70%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px; 
+}
+
+.form label, 
+.form input
+{
+    display: block;
+    margin: 1%;
+}
+
+.form input
+{
+    width: 100%;
+	height: 50px;
+    border: ipx solid #000;
+	padding-left: 10px;
+	font-size: 16px;
+}
+
+.form button
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 20px;
+    height: 40px;
+    color: white;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+
+.form a 
+{
+    text-decoration: none;
+}
+
+/* profile page */
+.sidebar
+{
+    width: 15%;
+    height: 100%;
+    float: left;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-color: #ADD8E6;
+    overflow-x: hidden;
+    padding: 2.5%;
+}
+
+.sidebar ul li
+{
+    list-style: none;
+    padding-top: 5%;
+}
+
+.sidebar ul li a
+{
+    text-decoration: none;
+    color: #191970;   
+}
+
+sidebar ul li a:hover
+{
+    color: #ffffff;   
+}
+
+.sidebar img
+{
+    padding-top: 20px;
+}
+
+main
+{
+    width: 75%;
+    float: right;
+    padding: 2.5%;
+}
+
+.entry
+{
+    background: #ffffff;
+    margin: 1%;
+    padding: 1%;
+}
+
+.entry .head
+{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.entry .head i
+{
+    display: block;
+}
+
+.entry .tail
+{
+    padding: 5px;
+}
+
+.entry button
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 15px;
+    height: 40px;
+    color: white;
+    margin-left: 42%;
+    margin-top: 3%;
+}
+
+/* new */
+.title
+{
+    margin-bottom: 10px;
+}
+
+.title input
+{
+    width: 100%;
+}
+
+.new textarea
+{
+    width: 98%;
+    height: 500px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 1%;
+}
+
+.checkbox
+{
+    float: right;
+}
+
+.new button
+{
+    background: #3CB371;
+    width: 150px;
+    font-size: 15px;
+    height: 40px;
+    color: white;
+    margin-top: 3%;
+    float: right;
+}
+
+/* settings */
+.settings
+{
+    padding: 2%;
+    width: 66%;
+    margin: auto;
+    background: #ffffff;
+    height: 500px;
+    border-radius: 10px;
+}
+.profile
+{
+    height: 300px;
+}
+
+.left
+{
+    width: 50%;
+    float: left;
+}
+
+.right
+{
+    float: right;
+    width: 50%;
+}
+
+.reminder
+{
+    width: 100%
+}
+
+.settings ul li
+{
+    list-style: none;
+    padding-top: 5%;
+}
+
+.settings ul li a
+{
+    text-decoration: none;
+    color: #00008B;
+}
+.reminder h3
+{
+    margin-bottom: 3%;
+}
+.reminder .small
+{
+    width: 50px;
+    padding-left: 10px;
+}
+
+.reminder form button
+{
+    background: #3CB371;
+    width: 120px;
+    font-size: 15px;
+    height: 40px;
+    color: white;
+    margin-top: 3%;
+}
+
+/* view */
+.view
+{
+    padding-top: 50px;
+    min-height: 500px;
+    
+}
+.view article
+{
+    min-height: 500px;
+    width: 60%;
+    margin-left: 10%;
+    float: left;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.view article p
+{
+    padding-top: 10px;
+    padding-bottom: 10px;  
+}
+
+.view aside
+{
+    padding-right: 5%; 
+    width: 15%;
+    float: right;
+}
+
+.view aside ul li
+{
+    list-style: none;
+}
+
+.view aside ul li a
+{
+    text-decoration: none;
+    font-size: 15px;
+    text-decoration: darkcyan
+}
