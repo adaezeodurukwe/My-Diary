@@ -63,7 +63,7 @@ class Entries {
     });
   }
   /**
-   * @returns {obj} retrieveEntry
+   * @returns {object} retrieveEntry
    * @param {*} req
    * @param {*} res
    */
