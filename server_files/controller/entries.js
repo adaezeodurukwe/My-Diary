@@ -29,8 +29,8 @@ class Entries {
           message: 'entry removed',
         });
       }
-      i++;
-    }
+    i++;
+  }
 
     return res.status(404).json({
       message: 'entry not found',
@@ -67,42 +67,41 @@ class Entries {
    * @param {*} req
    * @param {*} res
    */
-    static retrieveEntry(req, res) {
-      let i = 0;
-      while(i < entries.length){
-        if (entries[i].id === parseInt(req.params.id, 10)) {
-          return res.status(200).json({
-            entries: entries[i],
-            message: 'entry retrieved',
-          });
-        }
-        i++;
+  static retrieveEntry(req, res) {
+    let i = 0;
+    while(i < entries.length){
+      if (entries[i].id === parseInt(req.params.id, 10)) {
+        return res.status(200).json({
+          entries: entries[i],
+          message: 'entry retrieved',
+        });
       }
-      return res.status(404).json({
-        message: 'entry not found',
-        error: true
-      });
+      i++;
     }
+    return res.status(404).json({
+      message: 'entry not found',
+      error: true
+    });
+  }
     /**
    * @returns {Object} createEntry
    * @param {*} req
    * @param {*} res
    */
-    static createEntry(req, res) {
-        entries.push({
-          id: entries.length + 1,
-          title: req.body.title,
-          content: req.body.content,
-          date_created: req.body.date_created,
-          modified: 0
-        });
-        return res.status(201).json({
-          entries,
-          message: 'new entry created',
-          error: false
-        });
-      }
-
+  static createEntry(req, res) {
+    entries.push({
+      id: entries.length + 1,
+      title: req.body.title,
+      content: req.body.content,
+      date_created: req.body.date_created,
+      modified: 0
+    });
+    return res.status(201).json({
+      entries,
+      message: 'new entry created',
+      error: false
+    });
+  }
 }
 
 export default Entries;
