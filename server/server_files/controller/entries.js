@@ -4,7 +4,7 @@ import entries from '../model/entries';
  */
 class Entries {
   /**
-   * @returns {Object} recipes
+   * @returns {Object} entries
    * @param {*} req
    * @param {*} res
    */
