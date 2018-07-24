@@ -98,7 +98,9 @@ describe('DELETE API endpoint /api/v1/entries/:id', () => {
         .delete('/api/v1/entries/6')
         .end(function(err, res) {
             expect(res).to.have.status(404);
+           
         }); 
     });
+
 });
 
