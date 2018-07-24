@@ -2,7 +2,7 @@
 {
     padding: 0;
     margin: 0;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif ;
+    font-family: "Times New Roman", Times, serif;
 
 } 
 body
@@ -27,10 +27,21 @@ button
     text-align: center;
 }
 
+.sublinks
+{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.sublinks a
+{
+    text-decoration: none;
+}
+
 h1
 {
     font-size: 5em;
-    color: #666;
+    color: #262D27;
 }
 
 h2
@@ -48,7 +59,13 @@ p img
 .name 
 { 
     grid-area: name;
+    
+}
+
+.name a
+{
     color: #ffffff;
+    text-decoration: none
 }
 .list
 {
@@ -56,6 +73,7 @@ p img
 }
 .content
 {
+    padding-top: 1%;
     width: 80%;
     margin: auto;
     display: grid;
@@ -113,8 +131,8 @@ nav ul li a:hover
     display: grid;
     width: 80%;
     margin: auto;
-    grid-template-columns: auto auto auto;
-    text-align: center;
+    grid-template-columns: 40% 30% 30%;
+    text-align: left;
     padding-top: 5%;
 }
 
@@ -123,7 +141,7 @@ nav ul li a:hover
     background: #ffffff;
     border-radius: 10px;
     opacity: 0.9;
-    padding: 1%;
+    padding: 2%;
     margin:1%;
 }
 .item ul li
@@ -138,8 +156,12 @@ nav ul li a:hover
 
 footer
 {
-    padding-top: 20px;
+    padding: 20px;
     text-align: center;
+    background: #ccc;
+    bottom: 0px;
+    width: 100%;
+    position: fixed;
 }
 
 
