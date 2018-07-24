@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diary | New Entry</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/profile.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <nav>
-        <div class="name"><h2>MY DIARY</h2></div>
-        <div class="list">
-            <ul>
-                <li><a href="index.html">Home</a></li> |
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
+        <div class="content">
+            <div class="name"><h3>MY DIARY</h3></div>
+            <div class="list">
+                <ul>
+                    <li><a href="index.html">Home</a></li> |
+                    <li><a class="active" href="profile.html">Profile</a></li>
+                </ul>
+            </div>
         </div>    
     </nav>
-    <section>
-        <div class="sidebar">
-            <div class="avatar">
-                <img src="img/pain.png">
+    <div class="profile">
+        <div class="item">
+            <div class="sidebar">
                 <h3>Diary-Name</h3>
+                <ul>
+                    <li><a href="profile.html">My Entries</a> </li>
+                    <li><a class="active" href="new.html">New Entry</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="profile.html">My Entries</a> </li>
-                <li><a href="new.html">New Entry</a></li>
-                <li><a href="settings.html">Settings</a></li>
-            </ul>
-
         </div>
         
-        <main>
+        <div class="item">
             <h2>New Entry</h2>
             <div class="new">
                 <form action="#" method="POST">
@@ -39,13 +39,16 @@
                         <input type="text" name="title">
                     </div>
                     <b>Body:</b>
-                    <textarea></textarea>              
-                    <button>Log Entry</button>
+                    <textarea></textarea>
+                    <div class="button">
+                       <button>Log Entry</button> 
+                    </div>              
+                    
                 </form>
             </div>
             
-        </main>
+        </div>
         
-    </section>
+    </div>
 </body>
 </html>

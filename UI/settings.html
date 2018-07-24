@@ -4,51 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diary | Settings</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/profile.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <nav>
-        <div class="name"><h2>MY DIARY</h2></div>
-        <div class="list">
-            <ul>
-                <li><a href="index.html">Home</a></li> |
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
+        <div class="content">
+            <div class="name"><h3>MY DIARY</h3></div>
+            <div class="list">
+                <ul>
+                    <li><a href="index.html">Home</a></li> |
+                    <li><a class="active" href="profile.html">Profile</a></li>
+                </ul>
+            </div>
         </div>    
     </nav>
-    <section>
-        <div class="sidebar">
-            <div class="avatar">
-                <img src="img/pain.png">
+    <div class="profile">
+        <div class="item">
+            <div class="sidebar">
                 <h3>Diary-Name</h3>
+                <ul>
+                    <li><a href="profile.html">My Entries</a> </li>
+                    <li><a href="new.html">New Entry</a></li>
+                    <li><a class="active" href="settings.html">Settings</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="profile.html">My Entries</a> </li>
-                <li><a href="new.html">New Entry</a></li>
-                <li><a href="settings.html">Settings</a></li>
-            </ul>
-
         </div>
-        
-        <main>
+                
+        <div class="item">
             <div class="settings">
-                <div class="profile">
+                <ul class="left">
+                    <b>BIO</b>
+                    <li><b>Name: </b> Adaeze Eze-Odurukwe</li>
+                    <li><b>Email: </b> daizyodurukwe@gmail.com</li>
+                    <li><b>Phone Number: </b> 0909099999</li>
+                    <li><b>Birth Date</b> 5/2/1914</li>
+                </ul> 
 
-                    <ul class="left">
-                        <b>BIO</b>
-                        <li><b>Name: </b> Adaeze Eze-Odurukwe</li>
-                        <li><b>Email: </b> daizyodurukwe@gmail.com</li>
-                        <li><b>Phone Number: </b> 0909099999</li>
-                        <li><b>Birth Date</b> 5/2/1914</li>
-                    </ul> 
+                <ul class="right">
+                    <b>STATS</b>
+                    <li>You have made <b>3</b>  Entries</li>                     
+                </ul> 
 
-                    <ul class="right">
-                        <b>STATS</b>
-                        <li>You have made <b>3</b>  Entries</li>                     
-                    </ul> 
-
-                    
-                </div>
                 <div class="reminder">
                     <h3>Set Reminder</h3>
                     <form action="#" method="POST">                        
@@ -58,7 +54,7 @@
                             <option value="Weekly">Weekly</option>
                             <option value="monthly">Monthly</option>
                         </select>
-                        <b>Time: </b>
+                        <label for="time"><b>Time:</b></label>
                         <input type="number" name="hour" class="small" placeholder="00"> :
                         <input type="number" name="minute" class="small" placeholder="00">
                         
@@ -69,10 +65,9 @@
                         <button>Set Reminder</button>
                     </form>
                 </div>
-
-
             </div>
-        </main>
+            
+        </div>
         
     </section>
 </body>
