@@ -25,7 +25,7 @@ class Entries {
     while(i < entries.length){
       if (entries[i].id === parseInt(req.params.id, 10)) {
         entries.splice(i, 1);
-        return res.json({
+        return res.status(200).json({
           message: 'entry removed',
         });
       }

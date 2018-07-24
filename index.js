@@ -1,9 +1,13 @@
 //Server setup
 
-const express = require('express');
-const app = express();
-import Entries from './server_files/controller/entries';
+
+import express from 'express';
 import bodyParser from 'body-parser';
+import routes from './server/routes/routes';
+
+
+//create an instance of express
+const app = express();
 
 //parse application
 app.use(bodyParser.json());
@@ -12,19 +16,10 @@ app.use(bodyParser.json());
 const port = parseInt(process.env.PORT, 10) || 5000;
 app.listen(port, () =>console.log('Site is live on port ' + port))
 
-
 //set routes
+routes(app);
 app.get('/', (req, res)=>{
     res.send('Welcome to My Diary app API endpoint')
 });
-app.get('/api/v1/entries', Entries.getEntries);
-
-app.post('/api/v1/entries', Entries.createEntry);
-
-app.delete('/api/v1/entries/:id', Entries.deleteEntry);
-
-app.put('/api/v1/entries/:id', Entries.modifyEntry);
-
-app.get('/api/v1/entries/:id', Entries.retrieveEntry);
 
 module.exports = app;

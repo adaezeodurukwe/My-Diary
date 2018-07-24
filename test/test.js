@@ -1,19 +1,16 @@
 //API test
 
-const chai = require('chai');
-const expect = require('chai').expect;
-import entries from '../server_files/model/entries';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../index.js';
+import {expect} from 'chai'
 
-chai.use(require('chai-http'));
-let should = chai.should();
+chai.use(chaiHttp);
 
-const app = require('../index.js');
 
-describe('GET API endpoint /api/v1/entries', function() {
-    this.timeout(5000); // How long to wait for a response (ms)
-  
+describe('GET API endpoint /api/v1/entries', () => {  
     // GET - List all entries
-    it('should return all entries', function() {
+    it('should return all entries', () => {
       return chai.request(app)
         .get('/api/v1/entries')
         .then(function(res) {
@@ -26,11 +23,9 @@ describe('GET API endpoint /api/v1/entries', function() {
    
 });
 
-describe('POST API endpoint /api/v1/entries', function(){
-    this.timeout(5000); // How long to wait for a response (ms)
-    
+describe('POST API endpoint /api/v1/entries', () =>{    
     // POST - Add entries
-    it('should add an entry', function() {
+    it('should add an entry', () => {
         chai.request(app)
         .post('/api/v1/entries')
         .send({
@@ -42,8 +37,68 @@ describe('POST API endpoint /api/v1/entries', function(){
         })
         .end(function(err, res) {
             expect(res).to.have.status(201);
+            expect(res.body).to.be.a('object');
         });
         
+    });
+});
+
+describe('PUT API endpoint /api/v1/entries/:id', () => {
+    it('should modify an entry with given id', function() {
+        chai.request(app)
+        .put('/api/v1/entries/2')
+        .send({
+            title: 'req.body.title1',
+            content: 'req.body.content1'
+        })
+        .end(function(err, res) {
+            expect(res).to.have.status(200);
+        });
+    });
+    it('should return 404 if given id is not found', () => {
+        chai.request(app)
+        .put('/api/v1/entries/6')
+        .send({
+            title: 'req.body.title1',
+            content: 'req.body.content1'
+        })
+        .end(function(err, res) {
+            expect(res).to.have.status(404);
+        });
+    });
+});
+
+describe('GET API endpoint /api/v1/entries/:id', () => {
+    it('should return entry by id', function() {
+        chai.request(app)
+        .get('/api/v1/entries/1')
+        .end(function(err, res) {
+            expect(res).to.have.status(200);
+        });
+    });
+    it('should return 404 if given id is not found', () => {
+        chai.request(app)
+        .get('/api/v1/entries/6')
+        .end(function(err, res) {
+            expect(res).to.have.status(404);
+        });
+    });
+});
+
+describe('DELETE API endpoint /api/v1/entries/:id', () => {
+    it('should delete an entry with given id', function() {
+        chai.request(app)
+        .delete('/api/v1/entries/1')
+        .end(function(err, res) {
+            expect(res).to.have.status(200);
+        });
+    });
+    it('should return 404 if given id is not found', () => {
+        chai.request(app)
+        .delete('/api/v1/entries/6')
+        .end(function(err, res) {
+            expect(res).to.have.status(404);
+        }); 
     });
 });
 
