@@ -89,7 +89,7 @@ class Entries {
    * @param {*} res
    */
   static createEntry(req, res) {
-    entries.push({
+    entries.unshift({
       id: entries.length + 1,
       title: req.body.title,
       content: req.body.content,
@@ -97,7 +97,7 @@ class Entries {
       modified: 0
     });
     return res.status(201).json({
-      entries,
+      entries: entries[0],
       message: 'new entry created',
       error: false
     });
