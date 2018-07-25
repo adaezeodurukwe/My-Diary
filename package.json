@@ -6,7 +6,8 @@
     "node": "10.6.0"
   },
   "scripts": {
-    "start": "babel-node - index.js",
+    "start:dev": "nodemon --exec babel-node - index.js",
+    "start": "nodemon --exec babel-node - index.js",
     "lint": "eslint **/*.js --fix",
     "test": "mocha --require babel-register ./test/test.js --exit"
   },
@@ -22,7 +23,13 @@
   },
   "homepage": "https://github.com/dhay-zee/My-Diary#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
