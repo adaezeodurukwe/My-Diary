@@ -13,7 +13,7 @@ describe('GET API endpoint /api/v1/entries', () => {
     it('should return all entries', () => {
       return chai.request(app)
         .get('/api/v1/entries')
-        .then(function(res) {
+        .then((res) => {
           expect(res).to.have.status(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
@@ -35,7 +35,7 @@ describe('POST API endpoint /api/v1/entries', () =>{
             date_created: 'req.body.date_created',
             modify: 0,
         })
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(201);
             expect(res.body).to.be.a('object');
         });
@@ -44,14 +44,14 @@ describe('POST API endpoint /api/v1/entries', () =>{
 });
 
 describe('PUT API endpoint /api/v1/entries/:id', () => {
-    it('should modify an entry with given id', function() {
+    it('should modify an entry with given id', () => {
         chai.request(app)
         .put('/api/v1/entries/2')
         .send({
             title: 'req.body.title1',
             content: 'req.body.content1'
         })
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(200);
         });
     });
@@ -62,41 +62,41 @@ describe('PUT API endpoint /api/v1/entries/:id', () => {
             title: 'req.body.title1',
             content: 'req.body.content1'
         })
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(404);
         });
     });
 });
 
 describe('GET API endpoint /api/v1/entries/:id', () => {
-    it('should return entry by id', function() {
+    it('should return entry by id', () => {
         chai.request(app)
         .get('/api/v1/entries/1')
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(200);
         });
     });
     it('should return 404 if given id is not found', () => {
         chai.request(app)
         .get('/api/v1/entries/6')
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(404);
         });
     });
 });
 
 describe('DELETE API endpoint /api/v1/entries/:id', () => {
-    it('should delete an entry with given id', function() {
+    it('should delete an entry with given id', () => {
         chai.request(app)
         .delete('/api/v1/entries/1')
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(200);
         });
     });
     it('should return 404 if given id is not found', () => {
         chai.request(app)
         .delete('/api/v1/entries/6')
-        .end(function(err, res) {
+        .end((err, res) => {
             expect(res).to.have.status(404);
            
         }); 
