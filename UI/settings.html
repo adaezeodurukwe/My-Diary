@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary | Settings</title>
+    <link href="css/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <nav>
+        <div class="content">
+            <div class="name"><a href="index.html"><h3>MY DIARY</h3></a></div>
+            <div class="list">
+                <ul>
+                    <li><a href="index.html">Home</a></li> |
+                    <li><a class="active" href="profile.html">My Diary</a></li>
+                </ul>
+            </div>
+        </div>    
+    </nav>
+    <div class="profile">
+        <div class="item">
+            <div class="sidebar">
+                <h3>Diary-Name</h3>
+                <ul>
+                    <li><a href="profile.html">My Entries</a> </li>
+                    <li><a href="new.html">New Entry</a></li>
+                    <li><a class="active" href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+                
+        <div class="item">
+            <div class="settings">
+                <ul class="left">
+                    <b>BIO</b>
+                    <li><b>Name: </b> Adaeze Eze-Odurukwe</li>
+                    <li><b>Email: </b> daizyodurukwe@gmail.com</li>
+                    <li><b>Phone Number: </b> 0909099999</li>
+                    <li><b>Birth Date</b> 5/2/1914</li>
+                </ul> 
+
+                <ul class="right">
+                    <b>STATS</b>
+                    <li>You have made <b>3</b>  Entries</li>                     
+                </ul> 
+
+                <div class="reminder">
+                    <h3>Set Reminder</h3>
+                    <form action="#" method="POST">                        
+                        <label for="interval"><b>Interval:</b></label>
+                        <select name="interval" form="reminder">
+                            <option value="daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                        <label for="time"><b>Time:</b></label>
+                        <input type="number" name="hour" class="small" placeholder="00"> :
+                        <input type="number" name="minute" class="small" placeholder="00">
+                        
+                        <select name="time" form="time">
+                            <option value="am">AM</option>
+                            <option value="pm">PM</option>
+                        </select><br>
+                        <button>Set Reminder</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        
+    </section>
+</body>
+</html>
