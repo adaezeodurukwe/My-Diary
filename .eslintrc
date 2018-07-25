@@ -1,0 +1,48 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node":true
+    },
+    "extends": ["airbnb-base"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "allowImportExportEverywhere":true
+    },
+    "rules": {
+        "func-names": ["error", "never"],
+        "quotes": "error",
+        "curly": [
+            "error",
+            "multi-line"
+        ],
+        "one-var": 0,
+        "one-var-declaration-per-line": 0,
+        "new-cap": 0,
+        "no-underscore-dangle": [1, {
+            "allow": ["_id"]
+        }],
+        "import/no-unresolved": [
+            2,
+            {
+                "commonjs": true
+            }
+        ],
+        
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
