@@ -9,7 +9,7 @@
     "start:dev": "nodemon --exec babel-node - index.js",
     "start": "babel-node - index.js",
     "lint": "eslint **/*.js --fix",
-    "test": "nyc --reporter=lcov --reporter=text-lcov mocha --require babel-register ./test/test.js --exit"
+    "test": "nyc mocha --require babel-register ./test/test.js --exit && nyc report --reporter=text-lcov | coveralls "
   },
   "repository": {
     "type": "git",
