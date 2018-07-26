@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/dhay-zee/My-Diary/badge.svg?branch=ch-integrate-coveralls-159313596)](https://coveralls.io/github/dhay-zee/My-Diary?branch=ch-integrate-coveralls-159313596)
+
 # My-Diary
 An online journal that allows users to: 
 -create an account and log in.
