@@ -22,4 +22,4 @@ app.get('/', (req, res)=>{
     res.send('Welcome to My Diary app API endpoint')
 });
 
-module.exports = app;
+export default app;

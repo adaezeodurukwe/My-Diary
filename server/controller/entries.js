@@ -51,7 +51,7 @@ class Entries {
           entries[i].content = req.body.content;
           entries[i].modified = 1;
           return res.status(200).json({
-            entries,
+            entries: entries[i],
             message: 'entry modified successfully',
             error: false
           });
