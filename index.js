@@ -19,7 +19,7 @@ app.listen(port, () =>console.log('Site is live on port ' + port))
 //set routes
 routes(app);
 app.get('/', (req, res)=>{
-    res.send('Welcome to My Diary app API endpoint')
+    res.send('Welcome to My Diary app')
 });
 
 export default app;
