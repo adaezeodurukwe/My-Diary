@@ -1,4 +1,4 @@
-//API Entries model using an array and objects
+// API Entries model using an array and objects
 
 const entries = [
     {
@@ -15,6 +15,6 @@ const entries = [
         date_created: '19/02/2009',
         modified: 0,
     },
-]
+];
 
-export default entries
+export default entries;

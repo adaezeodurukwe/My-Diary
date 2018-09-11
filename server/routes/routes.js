@@ -1,5 +1,5 @@
 /* All routes sit here */
-import Entries from '../controller/entries'
+import Entries from '../controller/entries';
 
 export default (app) => {
     app.get('/api/v1/entries', Entries.getEntries);
@@ -11,5 +11,4 @@ export default (app) => {
     app.put('/api/v1/entries/:id', Entries.modifyEntry);
 
     app.get('/api/v1/entries/:id', Entries.retrieveEntry);
-  };
-  
+};
