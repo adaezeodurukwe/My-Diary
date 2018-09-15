@@ -1,14 +1,6 @@
 import {Pool} from 'pg';
+import config from '../config/config'
 
-const pool = new Pool({
-    user: 'mydiary',
-    host: 'localhost',
-    database: 'my_diary',
-    password: 'adaeze',
-    port: 5432,
-});
+const pool = new Pool(config.development);
 
-pool.query('SELECT NOW()', (err, res) => {
-    console.log(err, res)
-    pool.end()
-  });
+export default pool;
