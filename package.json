@@ -6,10 +6,12 @@
     "node": "10.6.0"
   },
   "scripts": {
+
     "startdev": "nodemon --exec babel-node - app.js",
     "start": "babel-node - app.js",
-    "lint": "eslint **/*.js --fix",
     "db":"babel-node - ./server/db/connect.js",
+    "lint": "eslint **/*.js --fix",
+    "devtest": "mocha --require babel-register ./test/test.js",
     "test": "nyc mocha --require babel-register ./test/test.js --exit && nyc report --reporter=text-lcov | coveralls "
   },
   "repository": {
