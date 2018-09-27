@@ -3,6 +3,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import userRouter from './server/routes/user';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 
 //create an instance of express
