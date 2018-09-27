@@ -12,7 +12,7 @@ const Auth = {
             const decoded = await jwt.verify(token, process.env.SECRET);
             const text = 'SELECT * FROM users WHERE id = $1'
             const { rows } = await query(text, decoded.userid)
-            if(row[0] == null){
+            if(rows[0] == null){
                 return res.status(400).send({message: 'invalid token'});
             }
             req.user = decoded.userid
