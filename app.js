@@ -3,6 +3,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import userRouter from './server/routes/user';
+import entryRouter from './server/routes/entries'
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.listen(port, () =>console.log('Site is live on port ' + port))
 
 
 app.use('/users', userRouter);
+app.use('/entries', entryRouter)
 app.use('/', (req, res)=>{
     res.send('users')
 });
