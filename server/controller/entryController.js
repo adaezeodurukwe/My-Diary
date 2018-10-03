@@ -26,6 +26,25 @@ const Entry = {
         
         try{
             const { rows } = await query(text, values);
+            if(!rows[0]) {
+                return res.status(404).send('no entry');
+            }
+            return res.status(201).send(rows);
+        }
+        catch(error){
+            return res.status(400).send(error)
+        }
+    },
+
+    async getEntry(req, res){
+        const text = 'SELECT * FROM entry where userid = $1 AND id = $2';
+        const values = [req.userid, req.params.id];
+
+        try{
+            const { rows } = await query(text, values);
+            if(!rows[0]) {
+                return res.status(404).send('not found');
+            }
             return res.status(201).send(rows);
         }
         catch(error){
