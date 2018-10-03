@@ -18,6 +18,19 @@ const Entry = {
             return res.status(400).send(error);
         }
 
+    },
+
+    async getAll(req, res){
+        const text = 'SELECT * FROM entry WHERE userid = $1';
+        const values = [req.userid];
+        
+        try{
+            const { rows } = await query(text, values);
+            return res.status(201).send(rows);
+        }
+        catch(error){
+            return res.status(400).send(error)
+        }
     }
         
 
