@@ -50,6 +50,32 @@ const Entry = {
         catch(error){
             return res.status(400).send(error)
         }
+    },
+
+    async modifyEntry(req, res){
+        const text = 'SELECT * FROM entry WHERE userid = $1 AND id = $2';
+        const values = [req.userid, req.params.id];
+        const updatetext = 'UPDATE entry SET title = $1, content = $2 WHERE userid = $3 AND id = $4 RETURNING *';
+
+        try{
+            const { rows } = await query(text, values);
+            if(!rows[0]) {
+                return res.status(404).send('not found');
+            }
+
+            const diff = (moment(new Date()) - rows[0].date_created)/3600000;
+            if(diff >= 24){
+                return res.status(400).send({message:'cannot update entry'})
+            }
+
+            const updatevalues = [req.body.title, req.body.content, req.userid, req.params.id];
+            const update = await query(updatetext, updatevalues);
+
+            return res.status(200).send(update.rows[0]);
+        }
+        catch(error){
+            return res.status(400).send(error)
+        }
     }
         
 
