@@ -32,7 +32,7 @@ const Entry = {
             return res.status(201).send(rows);
         }
         catch(error){
-            return res.status(400).send(error)
+            return res.status(400).send(error);
         }
     },
 
@@ -48,7 +48,7 @@ const Entry = {
             return res.status(201).send(rows);
         }
         catch(error){
-            return res.status(400).send(error)
+            return res.status(400).send(error);
         }
     },
 
@@ -65,7 +65,7 @@ const Entry = {
 
             const diff = (moment(new Date()) - rows[0].date_created)/3600000;
             if(diff >= 24){
-                return res.status(400).send({message:'cannot update entry'})
+                return res.status(400).send({message:'cannot update entry'});
             }
 
             const updatevalues = [req.body.title, req.body.content, req.userid, req.params.id];
@@ -74,11 +74,28 @@ const Entry = {
             return res.status(200).send(update.rows[0]);
         }
         catch(error){
-            return res.status(400).send(error)
+            return res.status(400).send(error);
         }
-    }
+    },
         
+    async delete(req, res){
 
+        const text ='DELETE FROM entry WHERE userid = $1 AND id = $2 RETURNING *';
+        const values = [req.userid, req.params.id];
+
+        try{
+            const rows = query(text, values);
+            if(!rows[0]){
+                return res.status(400).send('not found');
+            }
+            return res.status(200).send('entry deleted');
+        }
+        catch(error){
+            return res.status(400).send(error);
+
+        }
+
+    }
 }
 
 export default Entry;

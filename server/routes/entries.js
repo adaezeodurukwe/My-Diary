@@ -8,4 +8,5 @@ router.post('/', Auth.authorize, Entry.create);
 router.get('/', Auth.authorize, Entry.getAll);
 router.get('/:id', Auth.authorize, Entry.getEntry)
 router.put('/:id', Auth.authorize, Entry.modifyEntry)
+router.delete('/:id', Auth.authorize, Entry.delete);
 export default router;
