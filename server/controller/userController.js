@@ -32,7 +32,7 @@ const User = {
 
     async create(req, res){
         if(!req.body.name || !req.body.email || !req.body.password){
-            return res.status(400).send('missing field');
+            return res.status(400).send({message:'missing field'});
         }
 
         const hashedpass = bcrypt.hashSync(req.body.password);
@@ -43,7 +43,7 @@ const User = {
         try{
             const { rows } = await query(text, values);
             const token = jwt.sign({userid: rows[0].id}, process.env.SECRET, {expiresIn: "7d"}  );
-            return res.status(201).json({token: token});
+            return res.status(201).send({token: token});
         }
         catch(error){
             return res.status(400).send(error);
