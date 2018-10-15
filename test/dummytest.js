@@ -28,9 +28,9 @@ describe('POST API endpoint /api/v1/entries', () => {
         chai.request(app)
             .post('/api/v1/entries')
             .send({
-                title: 'req.body.title',
-                content: 'req.body.content',
-                date_created: 'req.body.date_created',
+                title: 'title',
+                content: 'content',
+                date_created: 'created',
             })
             .end((err, res) => {
                 expect(res).to.have.status(201);
@@ -45,8 +45,8 @@ describe('PUT API endpoint /api/v1/entries/:id', () => {
         chai.request(app)
             .put('/api/v1/entries/2')
             .send({
-                title: 'req.body.title1',
-                content: 'req.body.content1',
+                title: 'title1',
+                content: 'content1',
             })
             .end((err, res) => {
                 expect(res).to.have.status(200);
@@ -57,8 +57,8 @@ describe('PUT API endpoint /api/v1/entries/:id', () => {
         chai.request(app)
             .put('/api/v1/entries/6')
             .send({
-                title: 'req.body.title1',
-                content: 'req.body.content1',
+                title: 'some title1',
+                content: 'some content1',
             })
             .end((err, res) => {
                 expect(res).to.have.status(404);
