@@ -1,6 +1,6 @@
 // API Entries class
 
-import entries from '../model/entries';
+import entries from '../model/dummyentries';
 /**
  * @class entries
  */

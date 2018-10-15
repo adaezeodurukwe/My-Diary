@@ -20,8 +20,8 @@ const port = parseInt(process.env.PORT, 10) || 5000;
 app.listen(port, () =>console.log('Site is live on port ' + port))
 
 
-app.use('/users', userRouter);
-app.use('/entries', entryRouter)
+app.use('/auth', userRouter);
+app.use('/entries', entryRouter);
 app.use('/', (req, res)=>{
     res.send('users')
 });

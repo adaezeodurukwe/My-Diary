@@ -1,5 +1,5 @@
 /* All routes sit here */
-import Entries from '../controller/entries';
+import Entries from '../controller/dummyController';
 
 export default (app) => {
     app.get('/api/v1/entries', Entries.getEntries);

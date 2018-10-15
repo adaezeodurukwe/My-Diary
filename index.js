@@ -3,7 +3,7 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './server/routes/routes';
+import routes from './server/routes/dummyroutes';
 
 
 // create an instance of express
@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // set port and listen
-const port = parseInt(process.env.PORT, 10) || 5000;
+const port = parseInt(process.env.PORT, 10) || 3000;
 app.listen(port, () => console.log(`Site is live on port ${port}`));
 
 // set routes
