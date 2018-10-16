@@ -1,6 +1,7 @@
 
 import query from '../db/connect';
 import moment from 'moment';
+import notification from './notificationController';
 
 const Entry = {
 
@@ -14,6 +15,7 @@ const Entry = {
 
         try{
             const { rows } = await query(text, values);
+            notification.modifyDate();
             return res.status(201).send(rows[0]);
         }catch(error){
             return res.status(400).send(error);
