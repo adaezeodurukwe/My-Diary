@@ -17,11 +17,6 @@ describe('before', ()=>{
         await createUserTable();
         await createEntriesTable();
     });
-   
-    after(async() => {
-        await dropEntriesTable();
-        await dropUserTable();
-    });
 
     describe('before entry test', () => {
         before((done) => {
@@ -192,6 +187,10 @@ describe('before', ()=>{
         
         });
 
+    });
+    after(async() => {
+        await dropEntriesTable();
+        await dropUserTable();
     });
 
 });

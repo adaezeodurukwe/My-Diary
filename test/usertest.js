@@ -10,7 +10,7 @@ import { createUserTable, dropUserTable } from '../dbschema';
 
 chai.use(chaiHTTP);
 
-describe('after all tests', () => {
+describe('before all tests', () => {
     before((done) => {
         createUserTable((err) => {
             if(err) throw err;
