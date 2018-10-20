@@ -1,5 +1,6 @@
+// notifications controller
 
-import query from '../db/connect';
+import notifications from '../model/notificationsModel';
 import moment from 'moment';
 
 const Notification = {
@@ -9,12 +10,9 @@ const Notification = {
             return res.status(400).send({message: 'missing field'});
         }
 
-        const text = 'INSERT INTO notifications(user_id, alert_time, last_entry) VALUES($1, $2, $3) RETURNING *';
-        const values = [req.userid, req.body.time, moment(new Date())];
-
         try{
-            const { rows } = await query(text, values);
-            return res.status(201).send(rows[0]);
+            const newNotification = await notifications.create(req.userid , req.body.time);
+            return res.status(201).send(newNotification);
         }catch(error){
             return res.status(400).send(error);
         }
@@ -23,35 +21,31 @@ const Notification = {
         
     async delete(req, res){
 
-        const text ='DELETE FROM notifications WHERE user_id = $1 RETURNING *';
-        const values = [req.userid];
-
         try{
-            const rows = query(text, values);
+            const rows = await notifications.delete(req.userid);
             if(!rows[0]){
                 return res.status(400).send('not found');
             }
-            return res.status(200).send('entry deleted');
+            return res.status(200).send('notification deleted');
         }
         catch(error){
             return res.status(400).send(error);
-
         }
 
     },
 
-    async modifyDate(userid){
-        const text = 'SELECT * FROM notifications WHERE user_id = $1';
-        const values = [userid];
-        const updatetext = 'UPDATE notifications SET last_entry = $1';
+    async modifyDate(req, res){
 
         try{
-            const { rows } = await query(text, values);
-            if(!rows[0]) {
+            const notification = await notifications.getone(req.userid);
+            if(!notification) {
                 //pass
             }
-            const updatevalues = [moment(new Date())];
-            await query(updatetext, updatevalues);
+            const time = notification.alert_time || req.time;
+            const date = moment(new Date())
+
+            await notifications.modify(time, date, req.userid);
+            return res.status(200);
         }
         catch(error){
             throw error;
