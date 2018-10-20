@@ -12,13 +12,13 @@ import Users from '../server/model/userModel'
 chai.use(chaiHTTP);
 
 let token; 
-describe('before', ()=>{
+describe('Test GET, POST, PUT and DELETE', ()=>{
     before( async() => {
         await createUserTable();
         await createEntriesTable();
     });
 
-    describe('before entry test', () => {
+    describe('create user', () => {
         before((done) => {
             chai.request(app)
                 .post('/auth/signup')
@@ -186,11 +186,10 @@ describe('before', ()=>{
             });
         
         });
-        after(async() => {
-                await dropEntriesTable();
-                await dropUserTable();
-            });
+        
     });
-    
-
-});
+});    
+    after(async() => {
+        await dropEntriesTable();
+        await dropUserTable();
+    });
