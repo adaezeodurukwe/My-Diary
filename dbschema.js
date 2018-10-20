@@ -30,7 +30,7 @@ const createEntriesTable = async () => {
 }  
 
 const dropEntriesTable = async () => {
-    const sql = 'DROP TABLE entries'
+    const sql = 'DROP TABLE IF EXISTS entries'
 
     try{
         await pool.query(sql)
@@ -57,7 +57,7 @@ const createUserTable = async () => {
 }
 
 const dropUserTable = async () => {
-    const sql = 'DROP TABLE users CASCADE';
+    const sql = 'DROP TABLE IF EXISTS users CASCADE';
 
     try{
         await pool.query(sql);

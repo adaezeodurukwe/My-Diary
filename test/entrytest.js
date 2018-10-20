@@ -50,7 +50,7 @@ describe('before', ()=>{
                 chai.request(app)
                     .get('/entries')
                     .end((err, res) => {
-                        expect(res).to.have.status(404);
+                        expect(res).to.have.status(401);
                         expect(res.body).to.be.a('object');
                         expect(res.body).to.have.property('message');
                         expect(res.body).property('message').to.equal('unauthorized');
@@ -186,11 +186,11 @@ describe('before', ()=>{
             });
         
         });
-
+        after(async() => {
+                await dropEntriesTable();
+                await dropUserTable();
+            });
     });
-    after(async() => {
-        await dropEntriesTable();
-        await dropUserTable();
-    });
+    
 
 });
