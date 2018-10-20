@@ -4,28 +4,21 @@ import chai from 'chai';
 import chaiHTTP from 'chai-http';
 import app from '../app';
 import { expect } from 'chai';
-import { truncateEntriesTable } from '../server/model/entryModel'
-import { truncateUserTable } from '../server/model/userModel'
+import { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable } from '../dbschema';
+import Entries from '../server/model/entryModel'
+import Users from '../server/model/userModel'
 
 
 chai.use(chaiHTTP);
 
 let token; 
-describe('before', ()=>{
-    before((done) => {
-        truncateUserTable((err) => {
-            if(err) throw err; 
-        });
-        done();
-    });
-    after((done) => {
-        truncateEntriesTable((err) => {
-            if(err) throw err; 
-        });
-        done();
+describe('Test GET, POST, PUT and DELETE', ()=>{
+    before( async() => {
+        await createUserTable();
+        await createEntriesTable();
     });
 
-    describe('before entry test', () => {
+    describe('create user', () => {
         before((done) => {
             chai.request(app)
                 .post('/auth/signup')
@@ -49,9 +42,7 @@ describe('before', ()=>{
                     .set('x-access-token', token)
                     .end((err, res) => {
                         expect(res).to.have.status(200);
-                        expect(res.body).to.be.a('object');
-                        expect(res.body).to.have.property('message');
-                        expect(res.body).property('message').to.equal('no entry');
+                        expect(res.body).to.be.a('array');
                         done();
                     }); 
                 });
@@ -59,7 +50,7 @@ describe('before', ()=>{
                 chai.request(app)
                     .get('/entries')
                     .end((err, res) => {
-                        expect(res).to.have.status(404);
+                        expect(res).to.have.status(401);
                         expect(res.body).to.be.a('object');
                         expect(res.body).to.have.property('message');
                         expect(res.body).property('message').to.equal('unauthorized');
@@ -158,15 +149,47 @@ describe('before', ()=>{
                         .set('x-access-token', token)
                         .end((err, res) =>{
                             expect(res).to.have.status(200);
-                            expect(res.body).to.be.a('array');
+                            expect(res.body).to.be.a('object');
                             done();
                         });
                     });
             });
         
         });
+        describe('before delete', () => {
+            beforeEach((done) => {
+                chai.request(app)
+                .post('/entries')
+                .set('x-access-token', token)
+                .send({
+                    title: 'some title',
+                    content: 'plenty content'
+                })
+                .end((err, res) => {
+                    expect(res).to.have.status(201);
+                    id = res.body.id;
+                    done();
+                });
+            });
 
-
+            describe('delete entry', () => {
+                it('should delete entry given id', (done) => {
+                    chai.request(app)
+                        .delete('/entries/'+ id)
+                        .set('x-access-token', token)
+                        .end((err, res) =>{
+                            expect(res).to.have.status(200);
+                            expect(res.body).to.be.a('object');
+                            done();
+                        });
+                    });
+            });
+        
+        });
+        
     });
-
-});
+});    
+    after(async() => {
+        await dropEntriesTable();
+        await dropUserTable();
+    });

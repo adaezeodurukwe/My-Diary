@@ -1,37 +1,39 @@
 //user Model
-import {Pool} from 'pg';
-import config from '../config/config';
 
-const pool = new Pool(config.development);
+import query from '../db/connect';
 
-const createUserTable = async () => {
-    const sql = `CREATE TABLE users(
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL,
-        email VARCHAR(128) UNIQUE NOT NULL,
-        password VARCHAR(128) NOT NULL
-        )`;
+const users = {
 
-    try{
-        const res = await pool.query(sql);
-        console.log(res);
+    async create(name, email, pass){
 
-    }catch(err) {
-        console.log(err.stack);
+        const text =  'INSERT INTO users(name, email, password) VALUES($1, $2, $3) RETURNING *';
+        const values = [name, email, pass];
+
+        try{
+            const { rows }= await query(text, values);
+            return rows[0];
+    
+        }catch(err) {
+            console.log(err.stack);
+        };
+    },
+
+    async getUser(email){
+
+        const text = 'SELECT * FROM users WHERE email = $1';
+        const values = [email];
+
+        try{
+            const { rows }= await query(text, values);
+            return rows[0];
+    
+        }catch(err) {
+            console.log(err.stack);
+        };
     }
-}  
-const truncateUserTable = async () => {
-    const sql = 'TRUNCATE TABLE users CASCADE';
 
-    try{
-        await pool.query(sql);
-
-    }catch(err) {
-        console.log(err.stack);
-    }
 }
 
 
-export { createUserTable, truncateUserTable };
+export default users ;
 
-require('make-runnable');

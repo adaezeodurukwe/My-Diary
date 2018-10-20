@@ -4,15 +4,21 @@ import chai from 'chai';
 import chaiHTTP from 'chai-http';
 import app from '../app';
 import { expect } from 'chai';
-import { truncateUserTable } from '../server/model/userModel'
+import { createUserTable, dropUserTable } from '../dbschema';
 
 
 
 chai.use(chaiHTTP);
 
-describe('after all tests', () => {
+describe('before all tests', () => {
     before((done) => {
-        truncateUserTable((err) => {
+        createUserTable((err) => {
+            if(err) throw err;
+        });
+        done();
+    });
+    after((done) => {
+        dropUserTable((err) => {
             if(err) throw err;
         });
         done();

@@ -6,7 +6,7 @@ const Auth = {
     async authorize(req, res, next){
         const token = req.headers['x-access-token']
         if(!token){
-            return res.status(404).send({message: 'unauthorized'});
+            return res.status(401).send({message: 'unauthorized'});
         }
         try{
             const decoded = await jwt.verify(token, process.env.SECRET);
