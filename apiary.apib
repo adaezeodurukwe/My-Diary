@@ -1,80 +1,202 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://app.apiary.io/mydiary21/
 
 # Odurukwe Adaeze
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+My diary app is an online journal where users can save their thoughts and feelings.
 
-## Questions Collection [/questions]
+## User [/auth/signup]
 
-### List All Questions [GET]
+### Create User [POST]
+
++ Request (application/json)
+
+            {
+                "name" : "Test_User",
+                "email" : "testemail2@yahoo.com",
+                "password" : "test"
+            }
++ Response 201 (application/json)
+
+
+    + Body
+
+            {
+                "token": "valid token"
+            }
+            
++ Response 400 (application/json)
+
+    + Body
+    
+            {
+                "message": "missing field"
+            }
+            
+            
+      
+## User [/auth/signin]
+
+### Login User [POST]
+
++ Request (application/json)
+
+            {
+                "email" : "testemail2@yahoo.com",
+                "password" : "test"
+            }
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "token": "valid token"
+            }
++ Response 400 (application/json)
+
+    + Body
+    
+            {
+                "message": "missing field"
+            }
+            
+          
+
+
+## Entry [/entries]
+
+### List All Entries [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "id": 1,
+                "user_id": 1,
+                "title": "test title",
+                "content": "test content",
+                "date_created": "2018-10-14T23:00:00.000Z"
             }
         ]
 
-### Create a New Question [POST]
+### Create a New Entry [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "title": "test title 1",
+            "content": "test content"
         }
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/2
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "id": 2,
+                "user_id": 1,
+                "title": "test title 1",
+                "content": "test content",
+                "date_created": "2018-10-14T23:00:00.000Z"
+            }
+            
++ Response 400 (application/json)
+
+    + Body
+    
+            {
+                "message": "missing field"
+            }
+            
+            
++ Response 401 (application/json)  
+
+    + Body
+    
+            {
+                "message": "unauthorized"
+            }
+                         
+            
+            
+## Entry/:id [/entries/{id}]
+
+    + Parameter
+        
+        + id: 1 (number) - An unique identifier of an entry.
+            
+            
+### Get entry By id [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "user_id": 1,
+                "title": "test title",
+                "content": "test content",
+                "date_created": "2018-10-14T23:00:00.000Z"
+            }
+        ]
+        
++ Response 401 (application/json)  
+
+    + Body
+    
+            {
+                "message": "unauthorized"
+            }
+             
+
+### Modify Entry [PUT]
+
++ Request (application/json)
+
+        {
+            "title": "modify test title 1",
+            "content": "modify test content"
+        }
+
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "id": 2,
+                "user_id": 1,
+                "title": "modify test title 1",
+                "content": "modify test content",
+                "date_created": "2018-10-14T23:00:00.000Z"
+            }
+            
++ Response 401 (application/json)  
+
+    + Body
+    
+            {
+                "message": "unauthorized"
+            }
+             
+            
+            
+### Delete entry [DELETE]
++ Response 200 (application/json)
+
+
+    + Body
+
+            {
+                "message" : "entry deleted"
+            }
+            
++ Response 401 (application/json)  
+
+    + Body
+    
+            {
+                "message": "unauthorized"
             }
