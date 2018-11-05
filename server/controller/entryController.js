@@ -56,7 +56,7 @@ const Entry = {
         try{
             const findEntry = await Entries.getOne(req.userid, req.params.id);
             if(!findEntry) {
-                return res.status(404).send('not found');
+                return res.status(404).send({message:'not found'});
             }
 
             const diff = (moment(new Date()) - findEntry.date_created)/3600000;

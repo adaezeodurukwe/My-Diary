@@ -1,6 +1,7 @@
 //Server setup
 
 import express from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import userRouter from './server/routes/user';
 import notificationRouter from './server/routes/notification';
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 const port = parseInt(process.env.PORT, 10) || 5000;
 app.listen(port, () =>console.log('Site is live on port ' + port))
 
+app.use(cors());
 
 app.use('/auth', userRouter);
 app.use('/notification', notificationRouter);
