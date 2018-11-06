@@ -17,12 +17,11 @@
             console.log(data)
             let output =`
                 <div class="head">
-                    <p><i>Date Logged: ${data.date_created}</i></p>
                     <p><b>Title: ${data.title}</b></p>
                 </div>
                 <hr>
                 <div class="tail">
-                    <p>${data.content}</p>
+                    <div>${data.content}</div>
                     <a href="edit.html?id=${data.id}">( Modify Post )</a>
                     <a href="#">( Delete Post )</a>
                 </div>

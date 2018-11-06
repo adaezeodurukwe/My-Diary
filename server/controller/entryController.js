@@ -15,7 +15,7 @@ const Entry = {
             const newEntry  = await Entries.create(req.userid, req.body.title, req.body.content);
             return res.status(201).send(newEntry);
         }catch(err){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
 
     },
@@ -31,7 +31,7 @@ const Entry = {
             return res.status(200).send(allEntries);
 
         }catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
         
     },
@@ -46,7 +46,7 @@ const Entry = {
             return res.status(200).send(oneEntry);
 
         }catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
 
     },
@@ -69,7 +69,7 @@ const Entry = {
             return res.status(200).send(update);
         }
         catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
     },
         
@@ -83,7 +83,7 @@ const Entry = {
             return res.status(200).send('entry deleted');
         }
         catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
 
         }
 

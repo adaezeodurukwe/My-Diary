@@ -12,18 +12,18 @@ function loadEntries(){
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log(data)
+        let content = data.content;
+        let shortContent = content.substr(0, 20) + '...'
         let i = 0
         let output = ' ';
             data.forEach((entry) => {
                 output += `
                     <div class="entry">
                         <div class="head">
-                            <i>${entry.date_created}</i>
-                            <b>${entry.title}</b>
+                            <b>Title: ${entry.title}</b>
                         </div>
                         <div class="tail">
-                            <p>${entry.content}</p>
+                            <p>Content: ${shortContent}</p>
                             <div class="button">
                                 <button onclick="location.href='view.html?id=${entry.id}';">View Entry</button>
                             </div>
@@ -39,4 +39,5 @@ function loadEntries(){
     .catch((err) => console.log(err))
 
 }
-loadEntries();
+
+loadEntries()
