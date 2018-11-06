@@ -56,6 +56,11 @@ function createUser(e) {
     })
     .then((res) => res.json())
     .then((data) => {
+        if(data.error){
+            let x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
+        }
         localStorage.setItem('token', data.token);
         window.location.replace('profile.html');
     })

@@ -57,13 +57,21 @@ function update(e){
             'x-access-token': token,
             credentials: 'same-origin' 
         },
-        body: JSON.stringify({title:trimmedcontent, content:trimmedcontent})
+        body: JSON.stringify({title:trimmedTitle, content:trimmedcontent})
     })
     .then((res) => res.json())
     .then((data) => {
+        if(data.message === "cannot update entry"){
+            //alert('can\'t update')
+            let x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
+        }
         window.location.replace('view.html?id=' + data.id);
 
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+        console.log(err)
+    })
 
 }

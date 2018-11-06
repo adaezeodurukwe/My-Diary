@@ -2,6 +2,7 @@
 
 (function viewEntry(){
     let id = new URLSearchParams(window.location.search).get('id');
+    let toast = new URLSearchParams(window.location.search).get('toast');
     const token = localStorage.getItem('token');
     fetch('entries/'+ id ,{
         headers: {
@@ -29,4 +30,12 @@
             document.getElementById('article').innerHTML = output;
         })
         .catch((err) => console.log(err));
+
+        if(toast === 'true'){
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        }
+
+    
 })();

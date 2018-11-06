@@ -15,7 +15,7 @@ function loadEntries(){
         console.log(data)
         let i = 0
         let output = ' ';
-            data.forEach(function(entry){
+            data.forEach((entry) => {
                 output += `
                     <div class="entry">
                         <div class="head">
