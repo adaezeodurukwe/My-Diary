@@ -1,12 +1,21 @@
+// Login script
 
-document.getElementById('createUser').addEventListener('submit', login)
+document.getElementById('login').addEventListener('submit', login)
+
 function login(e) {
     e.preventDefault();
 
     let email = document.getElementById('email').value;
     let password = document.getElementById('pass').value;
 
-    fetch('http://localhost:5000/auth/signin', {
+    // Validate input
+    if(email == "" || password == ""){
+        document.getElementById('error').innerHTML = 'Incomplete Credentials';
+        return false;
+    }
+
+    // Fetch data
+    fetch('/auth/signin', {
         method:'POST', 
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -16,7 +25,9 @@ function login(e) {
     })
     .then((res) => res.json())
     .then((data) => {
-        localStorage.setItem('token', data.token);
+
+        localStorage.setItem('token', data.token);   
         window.location.replace('profile.html');
+
     })
 }

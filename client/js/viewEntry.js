@@ -1,7 +1,9 @@
+// View entry script
+
 (function viewEntry(){
     let id = new URLSearchParams(window.location.search).get('id');
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/entries/'+ id ,{
+    fetch('entries/'+ id ,{
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'content-type': 'application/json',

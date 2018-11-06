@@ -1,8 +1,8 @@
-console.log('me');
+// Profile script
 
 function loadEntries(){
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/entries',{
+    fetch('/entries',{
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'content-type': 'application/json',
@@ -32,10 +32,10 @@ function loadEntries(){
                 `;
                 i = i + 1;
             });
-            console.log(i)
-
-        document.getElementById('entries').innerHTML = output;
-    })
+            
+            document.getElementById('batch').innerHTML = i;
+            document.getElementById('entries').innerHTML = output;
+        })
     .catch((err) => console.log(err))
 
 }

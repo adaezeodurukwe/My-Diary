@@ -1,7 +1,12 @@
-(function updateEntry(){
+// Update script
+
+document.getElementById('update').addEventListener('submit', update);
+
+// Load required entry to be updated
+(function loadEntry(){
     let id = new URLSearchParams(window.location.search).get('id');
     const token = localStorage.getItem('token');
-    fetch('http://localhost:5000/entries/'+ id ,{
+    fetch('/entries/'+ id ,{
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'content-type': 'application/json',
@@ -19,7 +24,7 @@
 
 })();
 
-document.getElementById('update').addEventListener('submit', update);
+
 function update(e){
     e.preventDefault();
 
@@ -27,9 +32,24 @@ function update(e){
     const token = localStorage.getItem('token');
     let title = document.getElementById('title').value;
     let content = document.getElementById('mytextarea').value;
+    let trimmedTitle = title.trim();
+    let trimmedcontent = content.trim();
 
-    //console.log(name, email, password);
-    fetch('http://localhost:5000/entries/'+ id, {
+    // Validate input
+    if(trimmedTitle == ""){
+        document.getElementById('error').innerHTML = 'Please enter a title'
+        document.getElementById('title').focus(); 
+        return false;
+    }
+
+    if(trimmedcontent == ""){
+        document.getElementById('error').innerHTML = 'Please enter content'
+        document.getElementById('content').focus(); 
+        return false;
+    }
+
+    // Post data
+    fetch('/entries/'+ id, {
         method:'PUT', 
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -37,11 +57,12 @@ function update(e){
             'x-access-token': token,
             credentials: 'same-origin' 
         },
-        body: JSON.stringify({title:title, content:content})
+        body: JSON.stringify({title:trimmedcontent, content:trimmedcontent})
     })
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
+        window.location.replace('view.html?id=' + data.id);
+
     })
     .catch((err) => console.log(err))
 
