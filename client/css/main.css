@@ -7,22 +7,35 @@
 } 
 body
 {
-    /* background: #FFFFF0 ; */
     background-image: url("../img/book.jpg");
+    background-repeat:no-repeat;
     background-size: cover;
 }
 
-.form button
+
+button
 {
     background: #3CB371;
     width: 100px;
     font-size: 15px;
     height: 40px;
     margin-top: 10px;
-    /* border-color: #262D27; */
-    text-align: center;
 }
 
+.form button
+{
+    background: #3CB371;
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.button
+{
+    width: 50%;
+    margin: auto;
+}
 
 .sublinks
 {
@@ -80,7 +93,7 @@ p img
 
 nav
 {
-    color: #ccc;
+    color: #ffffff;
     width: 100%;
     height: 40px;
     padding: 5px;
@@ -104,15 +117,9 @@ nav ul li
 nav ul li a
 {
     text-decoration: none;
-    color: #ccc;
-}
-
-nav ul li a.active,
-nav ul li a:hover
-{
     color: #ffffff;
-}
 
+}
 
 .heading
 {
@@ -150,6 +157,13 @@ nav ul li a:hover
 }
 
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="container"] {
+        grid-template-columns: 100%;
+        padding-bottom: 10%;
+    }
+}
 
 footer
 {
@@ -169,14 +183,13 @@ footer
     opacity: 0.9;
     border-radius: 15px;
     width: 50%;
-    padding: 5%;
+    padding: 3%;
     margin: auto;
     margin-top: 100px;
     margin-bottom: 100px; 
 }
 
-.form label, 
-.form input
+.form label
 {
     display: block;
     margin: 1%;
@@ -184,14 +197,17 @@ footer
 
 .form input
 {
-    width: 100%;
+    display: block;
+    margin: 1%;
+    width: 95%;
 	height: 50px;
     border: 1px solid #000;
     background: #ffffff;
-	font-size: 16px;
+    font-size: 16px;
+    padding-left: 10px;
+
 }
 
-.form
 
 .form a 
 {

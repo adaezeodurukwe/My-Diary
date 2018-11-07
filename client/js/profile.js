@@ -12,11 +12,12 @@ function loadEntries(){
     })
     .then((res) => res.json())
     .then((data) => {
-        let content = data.content;
-        let shortContent = content.substr(0, 20) + '...'
+        
         let i = 0
         let output = ' ';
             data.forEach((entry) => {
+                let content = entry.content;
+                let shortContent = content.substr(0, 20) + '...'
                 output += `
                     <div class="entry">
                         <div class="head">
@@ -25,7 +26,7 @@ function loadEntries(){
                         <div class="tail">
                             <p>Content: ${shortContent}</p>
                             <div class="button">
-                                <button onclick="location.href='view.html?id=${entry.id}';">View Entry</button>
+                                <button onclick="location.href='view.html?id=${entry.id}';">View</button>
                             </div>
                         </div>
                     </div>
