@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary | Settings</title>
+    <link href="css/profile.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/utility.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="content">
+            <div class="name"><a href="index.html"><h3>MY DIARY</h3></a></div>
+            <div class="list">
+                <ul>
+                    <li><a class="active" href="https://mydiary21.docs.apiary.io">Docs</a></li> |
+                    <li><a href="profile.html">My Diary</a></li>
+                </ul>
+            </div>
+        </div>    
+    </nav>
+    <div class="profile">
+        <div class="item">
+            <div class="sidebar">
+                <button onclick="window.location.href='/profile.html'">Entries</button>
+                <button onclick="window.location.href='/new.html'">Add</button>
+                <button onclick="window.location.href='/settings.html'">Settings</button>
+                <button onclick="return logout();">Log Out</button>
+            </div>
+        </div>
+                
+        <div class="item">              
+            <div class="reminder">
+                <h3>Set Reminder</h3>
+                <form action="#" method="POST">                        
+                    <h3>Set daily notifications</h3>
+                    <label for="time"><b>Time:</b></label>
+                    <input type="number" name="hour" class="small" placeholder="00"> :
+                    <input type="number" name="minute" class="small" placeholder="00">
+                    
+                    <select name="time" form="time">
+                        <option value="am">AM</option>
+                        <option value="pm">PM</option>
+                    </select><br><br>
+                    <button>Set Reminder</button>
+                </form>
+            </div>
+            
+        </div>
+        
+    </section>
+</body>
+</html>

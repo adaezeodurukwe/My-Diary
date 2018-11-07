@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diary | SignUp</title>
+    <title>Diary | SignIn</title>
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <div class="name"><a href="index.html"><h3>MY DIARY</h3></a></div>
             <div class="list">
                 <ul>
-                    <li><a href="index.html">Home</a></li> |
+                    <li><a class="active" href="https://mydiary21.docs.apiary.io">Docs</a></li> |
                     <li><a href="profile.html">My Diary</a></li>
                 </ul>
             </div>
@@ -20,34 +20,30 @@
     </nav>
     <div class="form_container">
         <div class = "form">
-            <div class="form_heading">
-                <h2>Sign Up</h2>
-            </div>
-            
-            
-            <form id="createUser" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name">
-
+            <h2>Sign In</h2>
+            <form id="login" method="POST">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email">
+                <input type="email" id="email" name="name">
 
-                <label for="pass">Choose Password</label>
+                <label for="pass">Password</label>
                 <input type="password" id="pass" name="pass">
-                
-                <label for="confpass">Confirm Password</label>
-                <input type="password" name="confpass">
+
+                <p id="error"></p>
 
                 <div class="button">
-                    <input type="submit" class="button" value="Sign Up">
+                    <button>Sign In</button>    
                 </div>
                 <div class="sublinks">
-                    <a href="signin.html">Sign In</a>
+                    <a href="signup.html"> New Here?</a>
                 </div>
                 
             </form>
             
         </div>
     </div>
+    <footer>
+        	&copy;Adaeze Eze-Odurukwe
+    </footer>
+<script type="text/javascript" src="js/loginUser.js"></script>    
 </body>
 </html>

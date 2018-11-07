@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary | Profile</title>
+    <script type="text/javascript" src="js/utility.js"></script>
+    <link href="css/profile.css" rel="stylesheet" type="text/css">
+</head>
+<body >
+    <nav>
+        <div class="content">
+            <div class="name"><a href="index.html"><h3>MY DIARY</h3></a></div>
+            <div class="list">
+                <ul>
+                    <li><a class="active" href="https://mydiary21.docs.apiary.io">Docs</a></li> |
+                    <li><a href="profile.html">My Diary</a></li>
+                </ul>
+            </div>
+        </div>    
+    </nav>
+    <div class="profile">
+        <div class="item">
+            <div class="sidebar">
+                <button onclick="window.location.href='/profile.html'">Entries</button>
+                <button onclick="window.location.href='/new.html'">Add</button>
+                <button onclick="window.location.href='/settings.html'">Settings</button>
+                <button onclick="return logout();">Log Out</button>
+            </div>
+        </div>
+        
+        <div class="item">
+            
+            <h2>Entries<span id="batch"></span></h2>
+            
+            
+            <div id="entries"></div>
+            
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="js/profile.js"></script>
+</body>
+</html>

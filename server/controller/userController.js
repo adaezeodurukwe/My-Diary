@@ -23,7 +23,7 @@ const User = {
             return res.status(200).json({token: token});
         }
         catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
         
     },
@@ -41,7 +41,7 @@ const User = {
             return res.status(201).send({token: token});
         }
         catch(error){
-            return res.status(400).send(error);
+            return res.status(400).send({error: error});
         }
 
     }

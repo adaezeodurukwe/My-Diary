@@ -7,22 +7,35 @@
 } 
 body
 {
-    /* background: #FFFFF0 ; */
     background-image: url("../img/book.jpg");
+    background-repeat:no-repeat;
     background-size: cover;
 }
 
-.form .button
+
+button
 {
     background: #3CB371;
     width: 100px;
     font-size: 15px;
     height: 40px;
     margin-top: 10px;
-    border-color: #262D27;
-    text-align: center;
 }
 
+.form button
+{
+    background: #3CB371;
+    width: 100%;
+    font-size: 15px;
+    height: 40px;
+    margin-top: 10px;
+}
+
+.button
+{
+    width: 50%;
+    margin: auto;
+}
 
 .sublinks
 {
@@ -80,7 +93,7 @@ p img
 
 nav
 {
-    color: #ccc;
+    color: #ffffff;
     width: 100%;
     height: 40px;
     padding: 5px;
@@ -104,15 +117,9 @@ nav ul li
 nav ul li a
 {
     text-decoration: none;
-    color: #ccc;
-}
-
-nav ul li a.active,
-nav ul li a:hover
-{
     color: #ffffff;
-}
 
+}
 
 .heading
 {
@@ -150,6 +157,13 @@ nav ul li a:hover
 }
 
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="container"] {
+        grid-template-columns: 100%;
+        padding-bottom: 10%;
+    }
+}
 
 footer
 {
@@ -169,14 +183,13 @@ footer
     opacity: 0.9;
     border-radius: 15px;
     width: 50%;
-    padding: 5%;
+    padding: 3%;
     margin: auto;
     margin-top: 100px;
     margin-bottom: 100px; 
 }
 
-.form label, 
-.form input
+.form label
 {
     display: block;
     margin: 1%;
@@ -184,14 +197,17 @@ footer
 
 .form input
 {
-    width: 100%;
+    display: block;
+    margin: 1%;
+    width: 95%;
 	height: 50px;
     border: 1px solid #000;
     background: #ffffff;
-	font-size: 16px;
+    font-size: 16px;
+    padding-left: 10px;
+
 }
 
-.form
 
 .form a 
 {
@@ -202,8 +218,7 @@ footer
 .view
 {
     display: grid;
-    grid-template-areas:
-    ' article aside ';
+    grid-template-columns: 80% 20%;
     width: 80%;
     margin: auto;
     margin-top: 15%;
@@ -211,12 +226,19 @@ footer
     min-height: 500px;
     
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="view"] {
+        grid-template-columns: 100%;
+    }
+}
+
 .view article
 {
-    grid-area: article;
     min-height: 500px;
+    float: left;
     padding: 3%;
-    margin-left: 10%;
     background: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -230,19 +252,88 @@ footer
 
 .view aside
 {   
-    grid-area: aside;
-    background: #ffffff;
+    background: #c5b3b3;
     opacity: 0.9;
     border-radius: 5px; 
-    padding: 2.5%; 
+    padding: 3%; 
 }
 
 .view aside ul li
 {
     list-style: none;
+    padding: 1%;
 }
 
 .view aside ul li a
 {
+    color: blue;
     font-size: 12px;
+}
+
+.links
+{
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: solid 1px #ccc;
+}
+
+.links a
+{
+    color: blue;
+    text-decoration: none;
+}
+
+.tail
+{
+    padding-top: 10px;
+}
+.head
+{
+    text-transform: capitalize
+}
+
+/* 
+** Toast solution from https://www.w3schools.com/howto/howto_js_snackbar.asp
+*/
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
 }
