@@ -1,8 +1,8 @@
 // Create user script
 
+
+// Set event listener
 document.getElementById('createUser').addEventListener('submit', createUser, false)
-
-
 
 function createUser(e) {
     e.preventDefault();

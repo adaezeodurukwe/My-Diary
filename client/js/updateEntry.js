@@ -1,5 +1,7 @@
 // Update script
 
+
+// Set event listener
 document.getElementById('update').addEventListener('submit', update);
 
 // Load required entry to be updated
@@ -24,7 +26,7 @@ document.getElementById('update').addEventListener('submit', update);
 
 })();
 
-
+// Update entry
 function update(e){
     e.preventDefault();
 

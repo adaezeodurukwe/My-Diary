@@ -218,8 +218,7 @@ footer
 .view
 {
     display: grid;
-    grid-template-areas:
-    ' article aside ';
+    grid-template-columns: 80% 20%;
     width: 80%;
     margin: auto;
     margin-top: 15%;
@@ -227,12 +226,19 @@ footer
     min-height: 500px;
     
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="view"] {
+        grid-template-columns: 100%;
+    }
+}
+
 .view article
 {
-    grid-area: article;
     min-height: 500px;
+    float: left;
     padding: 3%;
-    margin-left: 10%;
     background: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -246,21 +252,44 @@ footer
 
 .view aside
 {   
-    grid-area: aside;
-    background: #ffffff;
+    background: #c5b3b3;
     opacity: 0.9;
     border-radius: 5px; 
-    padding: 2.5%; 
+    padding: 3%; 
 }
 
 .view aside ul li
 {
     list-style: none;
+    padding: 1%;
 }
 
 .view aside ul li a
 {
+    color: blue;
     font-size: 12px;
+}
+
+.links
+{
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: solid 1px #ccc;
+}
+
+.links a
+{
+    color: blue;
+    text-decoration: none;
+}
+
+.tail
+{
+    padding-top: 10px;
+}
+.head
+{
+    text-transform: capitalize
 }
 
 /* 

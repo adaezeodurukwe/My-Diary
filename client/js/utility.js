@@ -1,3 +1,7 @@
+// Helper functions
+
+
+// Check if user is logged in
 (function loggedin(){
     const token = localStorage.getItem('token');
     fetch('/entries',{
@@ -18,6 +22,7 @@
     return true;          
 })();
 
+// Logout user
 function logout(){
     localStorage.removeItem('token');
     let newpage = window.location.replace('index.html');

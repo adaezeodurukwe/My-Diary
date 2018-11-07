@@ -1,5 +1,7 @@
 // Create entry script
 
+
+// Set event listener
 document.getElementById('createEntry').addEventListener('submit', createEntry); 
 
 function createEntry(e) {

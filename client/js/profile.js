@@ -1,6 +1,8 @@
 // Profile script
 
-function loadEntries(){
+
+// Load entries
+(function loadEntries(){
     const token = localStorage.getItem('token');
     fetch('/entries',{
         headers: {
@@ -39,6 +41,4 @@ function loadEntries(){
         })
     .catch((err) => console.log(err))
 
-}
-
-loadEntries()
+})();

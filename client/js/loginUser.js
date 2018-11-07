@@ -1,5 +1,7 @@
 // Login script
 
+
+// Set event listener
 document.getElementById('login').addEventListener('submit', login)
 
 function login(e) {
