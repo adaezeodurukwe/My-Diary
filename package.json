@@ -8,7 +8,7 @@
   "scripts": {
     "startdev": "nodemon --exec babel-node - app.js",
     "start": "babel-node - app.js",
-    "db": "babel-node - ./server/model/entryModel.js",
+    "db": "babel-node - ./dbschema.js",
     "lint": "eslint **/*.js --fix",
     "devtest": "mocha --require babel-register ./test/entrytest.js",
     "test": "nyc mocha --require babel-register ./test --exit && nyc report --reporter=text-lcov | coveralls "

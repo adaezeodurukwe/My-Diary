@@ -1,17 +1,14 @@
 // Database Schema
 
-const { Pool } = require('pg');
-const dotenv = require('dotenv');
+import {Pool} from 'pg';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
 // Connect
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
 });
 
 
@@ -77,6 +74,5 @@ const dropUserTable = async () => {
 }
 
   
-module.exports = { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable };
+export default { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable };
 
-require('make-runnable');
