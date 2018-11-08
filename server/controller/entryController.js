@@ -21,7 +21,7 @@ const Entry = {
         try{
             const newEntry  = await Entries.create(req.userid, req.body.title, req.body.content);
             return res.status(201).send(newEntry);
-        }catch(err){
+        }catch(error){
             return res.status(400).send({error: error});
         }
 
@@ -40,7 +40,7 @@ const Entry = {
 
             const allEntries = await Entries.getAll(req.userid);
             if(!allEntries) {
-                return res.status(200).send({ message :'no entry'});
+                return res.status(200).send({message :'no entry'});
             }
             return res.status(200).send(allEntries);
 

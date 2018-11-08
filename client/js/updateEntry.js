@@ -64,7 +64,6 @@ function update(e){
     .then((res) => res.json())
     .then((data) => {
         if(data.message === "cannot update entry"){
-            //alert('can\'t update')
             let x = document.getElementById("snackbar");
             x.className = "show";
             setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
