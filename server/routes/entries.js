@@ -1,3 +1,5 @@
+// Entry Routes
+
 import express from 'express';
 import Entry from '../controller/entryController'
 import Auth from '../middleware/Auth'

@@ -5,6 +5,14 @@ import Entries from '../model/entryModel';
 
 const Entry = {
 
+    /**
+     * 
+     * @description create new entry
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} neeEntry
+     * 
+     */
     async create(req, res) {
         if(!req.userid || !req.body.title || !req.body.content){
             return res.status(400).send({message: 'missing field'});
@@ -19,8 +27,15 @@ const Entry = {
 
     },
 
+    /**
+     * 
+     * @description get all enteries by a user
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {Array} allEntries
+     * 
+     */
     async getAll(req, res){
-    
         try{
 
             const allEntries = await Entries.getAll(req.userid);
@@ -35,8 +50,15 @@ const Entry = {
         
     },
 
+    /**
+     * 
+     * @description get one entry by a user with given entry id
+     * @param {*} req 
+     * @param {*} res
+     * @returns {Array} oneEntry
+     * 
+     */
     async getEntry(req, res){
-
         try{
             const oneEntry = await Entries.getOne(req.userid, req.params.id);
             if(!oneEntry) {
@@ -47,11 +69,17 @@ const Entry = {
         }catch(error){
             return res.status(400).send({error: error});
         }
-
     },
 
+    /**
+     * 
+     * @description modify a given entry
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} update
+     * 
+     */
     async modifyEntry(req, res){
-
         try{
             const findEntry = await Entries.getOne(req.userid, req.params.id);
             if(!findEntry) {
@@ -71,15 +99,22 @@ const Entry = {
             return res.status(400).send({error: error});
         }
     },
-        
+    
+    /**
+     * 
+     * @description delete an entry
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} message
+     * 
+     */
     async delete(req, res){
-
         try{
             const deleteEntry = Entries.delete(req.userid, req.params.id);
             if(!deleteEntry){
                 return res.status(404).send('not found');
             }
-            return res.status(200).send('entry deleted');
+            return res.status(200).send({message:'entry deleted'});
         }
         catch(error){
             return res.status(400).send({error: error});

@@ -1,4 +1,4 @@
-// user endpoints tests
+// User endpoints test
 
 import chai from 'chai';
 import chaiHTTP from 'chai-http';

@@ -1,4 +1,4 @@
-// API test
+// Dummy API test
 
 import chai from 'chai';
 import chaiHttp from 'chai-http';

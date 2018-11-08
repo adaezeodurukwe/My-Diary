@@ -12,6 +12,7 @@ function createUser(e) {
     let email = document.getElementById('email').value;
     let password = document.getElementById('pass').value;
     let confirmPassword = document.getElementById('confpass').value;
+    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let inputName = name.trim();
     let inputEmail = email.trim(); 
 
@@ -24,6 +25,11 @@ function createUser(e) {
     if(inputEmail == ""){
         document.getElementById('error').innerHTML = 'Please enter email'
         document.getElementById('email').focus(); 
+        return false;
+    }
+
+    if(!inputEmail.match(mailformat)){
+        document.getElementById('error').innerHTML = 'Invalid Email';
         return false;
     }
 

@@ -1,12 +1,10 @@
-//entry endpoints tests
+// Entry endpoints test
 
 import chai from 'chai';
 import chaiHTTP from 'chai-http';
 import app from '../app';
 import { expect } from 'chai';
 import { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable } from '../dbschema';
-import Entries from '../server/model/entryModel'
-import Users from '../server/model/userModel'
 
 
 chai.use(chaiHTTP);
@@ -189,7 +187,7 @@ describe('Test GET, POST, PUT and DELETE', ()=>{
         
     });
 });    
-    after(async() => {
-        await dropEntriesTable();
-        await dropUserTable();
-    });
+after(async() => {
+    await dropEntriesTable();
+    await dropUserTable();
+});

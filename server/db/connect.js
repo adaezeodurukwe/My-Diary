@@ -1,3 +1,5 @@
+// Connect to Database
+
 import {Pool} from 'pg';
 import dotenv from 'dotenv';
 
@@ -11,16 +13,22 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
-    const query = (text, params) =>{
-        return new Promise((resolve, reject)=>{
-            pool.query(text, params)
-            .then((res) => {
-                resolve(res);
-            })
-            .catch((err) => {
-                reject(err);
-            })
+/**
+ * @description resolve datadase query
+ * @param {*} text 
+ * @param {*} params 
+ * @returns {Promise}
+ */
+const query = (text, params) => {
+    return new Promise((resolve, reject)=>{
+        pool.query(text, params)
+        .then((res) => {
+            resolve(res);
         })
-    }
+        .catch((err) => {
+            reject(err);
+        })
+    })
+}
 
 export default query;

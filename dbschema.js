@@ -1,8 +1,11 @@
+// Database Schema
+
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
+// Connect
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -11,6 +14,8 @@ const pool = new Pool({
     port: process.env.DB_PORT,
 });
 
+
+// Create Entries Table
 const createEntriesTable = async () => {
     const sql = `CREATE TABLE IF NOT EXISTS entries(
         id SERIAL PRIMARY KEY,
@@ -29,6 +34,7 @@ const createEntriesTable = async () => {
     }
 }  
 
+// Drop Entries Table
 const dropEntriesTable = async () => {
     const sql = 'DROP TABLE IF EXISTS entries'
 
@@ -39,6 +45,7 @@ const dropEntriesTable = async () => {
     }
 }
 
+// Create User Table
 const createUserTable = async () => {
     const sql = `CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
@@ -57,6 +64,7 @@ const createUserTable = async () => {
     }
 }
 
+// Drop User Table
 const dropUserTable = async () => {
     const sql = 'DROP TABLE IF EXISTS users CASCADE';
 
@@ -68,35 +76,7 @@ const dropUserTable = async () => {
     }
 }
 
-const createNotificationsTable = async () => {
-    const sql = `CREATE TABLE notifications(
-        id SERIAL PRIMARY KEY,
-        user_id INT NOT NULL,
-        alert_time TIME NOT NULL,
-        last_entry DATE NOT NULL
-        )`;
-
-    try{
-        const res = await pool.query(sql);
-        console.log(res);
-
-    }catch(err) {
-        console.log(err.stack);
-    }
-}
   
-const dropNotificationsTable = async () => {
-    const sql = 'DROP TABLE notifications';
-
-    try{
-        await pool.query(sql);
-
-    }catch(err) {
-        console.log(err.stack);
-    }
-}
-
-
-module.exports = { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable, createNotificationsTable, dropNotificationsTable };
+module.exports = { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable };
 
 require('make-runnable');

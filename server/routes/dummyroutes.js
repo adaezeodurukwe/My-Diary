@@ -1,4 +1,5 @@
-/* All routes sit here */
+// All dummy routes
+ 
 import Entries from '../controller/dummyController';
 
 export default (app) => {

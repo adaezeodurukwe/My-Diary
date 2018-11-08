@@ -1,3 +1,5 @@
+//User Route
+
 import express from 'express';
 import User from '../controller/userController'
 import Auth from '../middleware/Auth'
