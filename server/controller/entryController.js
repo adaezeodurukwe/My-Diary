@@ -2,7 +2,6 @@
 
 import moment from 'moment';
 import Entries from '../model/entryModel';
-import notification from './notificationController';
 
 const Entry = {
 

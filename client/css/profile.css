@@ -97,16 +97,21 @@ nav ul li a
     grid-template-columns: 20% 70% ;
 }
 
+.sidebar{
+    padding-top: 100%;
+}
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="profile"] {
         grid-template-columns: 100%;
     }
+    [class*="sidebar"] {
+        padding-top: 20%;
+    }
 }
 
-.sidebar{
-    padding-top: 30%;
-}
+
 
 .sidebar button
 {
@@ -137,7 +142,7 @@ nav ul li a
 #entries
 {
     background: #ffffff;
-    margin: 1%;
+    margin-left: 5%;
     padding: 2%;
 }
 .entry
@@ -190,7 +195,7 @@ nav ul li a
 /* settings */
 .reminder
 {
-    padding: 5% 10%;
+    padding: 10%;
 }
 .reminder h3
 {
