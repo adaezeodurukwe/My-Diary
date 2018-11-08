@@ -12,12 +12,12 @@ const User = {
         }
    
         try{
-            const user = await users.getUser(req.body.email)
+            const user = await users.login(req.body.email)
             if(!user){
-                return res.status(400).send('email or password incorrect');
+                return res.status(404).send({message:'email or password incorrect'});
             }
             if(!bcrypt.compareSync(req.body.password, user.password )){
-                return res.status(400).send('email or password incorrect');
+                return res.status(400).send({message:'email or password incorrect'});
             }
             const token = jwt.sign({userid: user.id}, process.env.SECRET, {expiresIn: "7d"}  );
             return res.status(200).json({token: token});
@@ -44,6 +44,28 @@ const User = {
             return res.status(400).send({error: error});
         }
 
+    },
+
+    async getUser(req, res){
+        try{
+            let user = await users.getUser(req.userid)
+            return res.status(200).send(user)
+        }
+        catch(error){
+            return res.status(400).send({error: error});
+        }
+    },
+
+    async updateReminder(req, res){
+        try{
+            let userDetail = await users.getUser(req.userid)
+            let value = userDetail.reminder === 0 || userDetail.reminder === null? 1 : 0;
+            let update = await users.updateReminder(value, req.userid)
+            return res.status(200).send(update);
+        }
+        catch(error){
+            return res.status(400).send({error: error});
+        }
     }
    
 } 
