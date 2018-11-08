@@ -161,6 +161,11 @@ nav ul li a
     display: block;
 }
 
+.entry p
+{
+    text-align: center;
+}
+
 /* new */
 .title
 {
@@ -209,6 +214,10 @@ nav ul li a
     display: block;
 }
 
+#setReminder
+{
+    text-align: center;
+}
 
 /* 
 ** Toast solution from https://www.w3schools.com/howto/howto_js_snackbar.asp
