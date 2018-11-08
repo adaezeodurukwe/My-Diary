@@ -138,6 +138,7 @@ nav ul li a
     grid-template-columns: 40% 30% 30%;
     text-align: left;
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .item
@@ -156,18 +157,9 @@ nav ul li a
     padding-bottom: 10px;
 }
 
-
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="container"] {
-        grid-template-columns: 100%;
-        padding-bottom: 10%;
-    }
-}
-
 footer
 {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     background: #ccc;
     bottom: 0px;
@@ -227,13 +219,6 @@ footer
     
 }
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    [class*="view"] {
-        grid-template-columns: 100%;
-    }
-}
-
 .view article
 {
     min-height: 500px;
@@ -290,6 +275,28 @@ footer
 .head
 {
     text-transform: capitalize
+}
+
+#delete
+{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="container"] {
+        grid-template-columns: 100%;
+        padding-bottom: 10%;
+    }
+    
+    [class *= "form"]{
+        width: 80%;
+        padding: 5%;
+    }
+
+    [class*="view"] {
+        grid-template-columns: 100%;
+    }
 }
 
 /* 

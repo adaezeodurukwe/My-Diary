@@ -11,7 +11,7 @@ function createEntry(e) {
     let title = document.getElementById('title').value;
     let content = document.getElementById('content').value;
     let trimmedTitle = title.trim();
-    let trimmedcontent = content.trim();
+    let trimmedContent = content.trim();
 
     // Validate input
     if(trimmedTitle == ""){
@@ -20,7 +20,7 @@ function createEntry(e) {
         return false;
     }
 
-    if(trimmedcontent == ""){
+    if(trimmedContent == ""){
         document.getElementById('error').innerHTML = 'Please enter content'
         document.getElementById('content').focus(); 
         return false;
@@ -35,11 +35,19 @@ function createEntry(e) {
             'x-access-token': token,
             credentials: 'same-origin' 
         },
-        body: JSON.stringify({title:trimmedTitle, content:trimmedcontent})
+        body: JSON.stringify({title:trimmedTitle, content:trimmedContent})
     })
     .then((res) => res.json())
-    .then(() => {
-        window.location.replace('profile.html');;
+    .then((data) => {
+        if(data.error){
+            console.log(data)
+            let x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(()=>{ x.className = x.className.replace("show", ""); }, 3000);
+        }else{
+            window.location.replace('profile.html');
+        }
+        
     })
     .catch((err)=> console.log(err))
 }
