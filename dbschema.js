@@ -44,7 +44,8 @@ const createUserTable = async () => {
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL,
         email VARCHAR(128) UNIQUE NOT NULL,
-        password VARCHAR(128) NOT NULL
+        password VARCHAR(128) NOT NULL,
+        reminder SMALLINT NOT NULL
         )`;
 
     try{
