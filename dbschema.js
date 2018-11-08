@@ -74,5 +74,5 @@ const dropUserTable = async () => {
 }
 
   
-export default { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable };
+export { createEntriesTable, dropEntriesTable, createUserTable, dropUserTable };
 
