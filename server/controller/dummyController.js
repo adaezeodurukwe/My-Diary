@@ -1,4 +1,4 @@
-// API Entries class
+// Dummy Entries class
 
 import entries from '../model/dummyentries';
 /**

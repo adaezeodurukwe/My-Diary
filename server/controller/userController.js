@@ -1,4 +1,4 @@
-//users controller
+// User Controller
 
 import users from '../model/userModel';
 import bcrypt from 'bcrypt-nodejs';
@@ -6,6 +6,14 @@ import jwt from 'jsonwebtoken';
 
 const User = {
 
+    /**
+     * 
+     * @description login a user
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} token
+     * 
+     */
     async login(req, res){
         if(!req.body.email || !req.body.password){
             return res.status(400).send({message:'missing field'});
@@ -28,6 +36,14 @@ const User = {
         
     },
 
+    /**
+     * 
+     * @description create new user
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} token
+     * 
+     */
     async create(req, res){
         if(!req.body.name || !req.body.email || !req.body.password){
             return res.status(400).send({message:'missing field'});
@@ -46,6 +62,14 @@ const User = {
 
     },
 
+    /**
+     * 
+     * @description get user details
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} user
+     * 
+     */
     async getUser(req, res){
         try{
             let user = await users.getUser(req.userid)
@@ -56,6 +80,14 @@ const User = {
         }
     },
 
+    /**
+     * 
+     * @description update user reminder status
+     * @param {*} req 
+     * @param {*} res 
+     * @returns {object} update 
+     * 
+     */
     async updateReminder(req, res){
         try{
             let userDetail = await users.getUser(req.userid)
@@ -66,8 +98,7 @@ const User = {
         catch(error){
             return res.status(400).send({error: error});
         }
-    }
-   
+    }   
 } 
 
 export default User;

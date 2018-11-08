@@ -1,8 +1,18 @@
+// Authorization Middleware
+
 import jwt from 'jsonwebtoken';
 import query from '../db/connect';
 
 const Auth = {
 
+    /**
+     * 
+     * @description get token, decode token and send userid to next function
+     * @param {*} req 
+     * @param {*} res 
+     * @param {*} next 
+     * 
+     */
     async authorize(req, res, next){
         const token = req.headers['x-access-token']
         if(!token){

@@ -5,6 +5,15 @@ import query from '../db/connect';
 
 const Entries = {
 
+    /**
+     * 
+     * @description create an entry
+     * @param {*} u_id 
+     * @param {*} title 
+     * @param {*} content 
+     * @returns {object} created entry
+     * 
+     */
     async create(u_id, title, content) {
 
         const text = 'INSERT INTO entries(user_id, title, content, date_created) VALUES($1, $2, $3, $4) RETURNING *';
@@ -20,6 +29,13 @@ const Entries = {
 
     },
 
+    /**
+     * 
+     * @description gets all entries of a user
+     * @param {*} u_id 
+     * @returns {object} all entries
+     * 
+     */
     async getAll(u_id){
         
         const text ='SELECT * FROM entries WHERE user_id = $1';
@@ -35,6 +51,14 @@ const Entries = {
         
     },
 
+    /**
+     * 
+     * @description get one entry
+     * @param {*} u_id 
+     * @param {*} id 
+     * @returns one entry
+     * 
+     */
     async getOne(u_id, id){
 
         const text = 'SELECT * FROM entries where user_id = $1 AND id = $2';
@@ -50,6 +74,16 @@ const Entries = {
 
     },
 
+    /**
+     * 
+     * @description updates an entry
+     * @param {*} title 
+     * @param {*} content 
+     * @param {*} id 
+     * @param {*} u_id 
+     * @returns {object} updated entry
+     * 
+     */
     async update(title, content, id, u_id){
 
         const text = 'UPDATE entries SET title = $1, content = $2 WHERE user_id = $3 AND id = $4 RETURNING *';
@@ -64,6 +98,13 @@ const Entries = {
         };
     },
 
+    /**
+     * 
+     * @description delete entry
+     * @param {*} u_id 
+     * @param {*} id 
+     * 
+     */
     async delete(u_id, id){
         const text = 'DELETE FROM entries WHERE user_id = $1 AND id = $2 RETURNING *';
         const values = [u_id, id];
