@@ -38,7 +38,7 @@ const Entries = {
      */
     async getAll(u_id){
         
-        const text ='SELECT * FROM entries WHERE user_id = $1';
+        const text ='SELECT * FROM entries WHERE user_id = $1 ORDER BY id DESC';
         const values = [u_id];
 
         try{
