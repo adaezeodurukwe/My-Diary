@@ -17,7 +17,7 @@
         console.log(data)
         let i = 0;
         if(!data[0]){
-            let output = `<div class="entry"><p>Start adding entries by clicking on the Add button.</p></div>`
+            let output = `<div class="entry"><p class="det">Start adding entries by clicking on the Add button.</p></div>`
             document.getElementById('entries').innerHTML = output;
         }else{
             let output = ' ';
