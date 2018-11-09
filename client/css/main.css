@@ -297,6 +297,11 @@ footer
     [class*="view"] {
         grid-template-columns: 100%;
     }
+
+    [class*="content"] {
+        grid-template-areas:
+        'name name name list list ';;
+    }
 }
 
 /* 
