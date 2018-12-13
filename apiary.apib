@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://app.apiary.io/mydiary21/
 
-# Odurukwe Adaeze
+# My Diary App
 
 My diary app is an online journal where users can save their thoughts and feelings.
 
@@ -80,7 +80,7 @@ My diary app is an online journal where users can save their thoughts and feelin
             }
         ]
 
-### Create a New Entry [POST]
+### Create Entry [POST]
 
 
 + Request (application/json)
@@ -122,14 +122,14 @@ My diary app is an online journal where users can save their thoughts and feelin
                          
             
             
-## Entry/:id [/entries/{id}]
+## Entry [/entries/{id}]
 
     + Parameter
         
         + id: 1 (number) - An unique identifier of an entry.
             
             
-### Get entry By id [GET]
+### Get One Entry [GET]
 + Response 200 (application/json)
 
         [
@@ -183,7 +183,7 @@ My diary app is an online journal where users can save their thoughts and feelin
              
             
             
-### Delete entry [DELETE]
+### Delete Entry [DELETE]
 + Response 200 (application/json)
 
 
